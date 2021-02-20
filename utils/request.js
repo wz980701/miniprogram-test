@@ -1,0 +1,57 @@
+const host = 'http://localhost:3000/api';
+const app = getApp();
+
+import { checkSession } from './loginSession';
+
+const mergeRequestParams = (defaults, params) => {
+    return Object.assign({}, defaults, params);
+}
+
+const wxRequest = async (subUrl, params = {}) => {
+    const defaults = {
+        header: {
+            "Content-Type": "application/json",
+            token: token || ""
+        },
+        method: "GET",
+        data: {}
+    }
+
+    const options = mergeRequestParams(defaults, params);
+    let res = await new Promise((resolve, reject) => {
+        if (!app.globalData.userInfo) reject('未授权');
+        checkSession().then(() => {
+            let url = host + subUrl;
+            const { header, method, data } = options;
+            wx.request({
+                url,
+                header,
+                method,
+                data,
+                success: res => {
+                    const { code, data } = res.data;
+                    if (res && code === 200) {
+                        resolve(data);
+                    } else {
+                        let err = {
+                            request: res.request,
+                            response: res.data
+                        }
+                        res.err = err;
+                        reject(res);
+                    }
+                },
+                fail: err => {
+                    reject(err);
+                }
+            });
+        }).catch((err) => {
+            reject(err);
+        });
+    });
+    return res;
+}
+
+export {
+    wxRequest
+}
