@@ -1,4 +1,7 @@
 export const SESSION_KEY = 'sessionId';
+
+import API from './api';
+
 let isLogining = false;
 
 export function doLogin() {
@@ -20,18 +23,22 @@ export function doLogin() {
                 success: (res) => {
                     if (res.code) {
                         wx.request({
+                            method: 'post',
                             url: API.login,
                             data: {
                                 code: res.code
                             },
-                            success: (res) => {
-                                const data = res.data;
+                            success: (resp) => {
+                                const res = resp.data;
+                                console.log(res);
                                 isLogining = false;
-                                if (data.code === 200) {
-                                    wx.setStorageSync(SESSION_KEY, data[SESSION_KEY]);
+                                if (res.code === 200) {
+                                    const { userid, session_key } = res.data;
+                                    wx.setStorageSync(SESSION_KEY, session_key);
+                                    wx.setStorageSync('userId', userid);
                                     resolve();
                                 } else {
-                                    reject(data.msg);
+                                    reject(res.msg);
                                 }
                             },
                             fail: err => {

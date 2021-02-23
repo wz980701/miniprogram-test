@@ -2,6 +2,9 @@
 //获取应用实例
 const app = getApp()
 
+import { wxRequest } from '../../utils/request';
+import API from '../../utils/api';
+
 Page({
   data: {
     motto: 'Hello Jeremyu',
@@ -16,6 +19,7 @@ Page({
     })
   },
   onLoad: function () {
+    this.getTest();
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -47,11 +51,19 @@ Page({
     console.log(e)
     const userInfo = e.detail.userInfo;
     app.globalData.userInfo = userInfo;
+    wx.setStorageSync('isRegist', true);
     const { nickName, gender, avatarUrl } = userInfo;
     
     this.setData({
       userInfo,
       hasUserInfo: true
     });
+  },
+  getTest () {
+    wxRequest(API.test, {}).then((res) => {
+      console.log('res>>>>', res);
+    }).catch(err => {
+      console.log('err>>>>>', err);
+    });
   }
-})
+});

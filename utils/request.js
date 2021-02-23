@@ -10,8 +10,7 @@ const mergeRequestParams = (defaults, params) => {
 const wxRequest = async (subUrl, params = {}) => {
     const defaults = {
         header: {
-            "Content-Type": "application/json",
-            token: token || ""
+            "Content-Type": "application/json"
         },
         method: "GET",
         data: {}
@@ -19,7 +18,8 @@ const wxRequest = async (subUrl, params = {}) => {
 
     const options = mergeRequestParams(defaults, params);
     let res = await new Promise((resolve, reject) => {
-        if (!app.globalData.userInfo) reject('未授权');
+        const status = wx.getStorageSync('isRegist');
+        if (!status) reject('未授权');
         checkSession().then(() => {
             let url = host + subUrl;
             const { header, method, data } = options;
