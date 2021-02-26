@@ -1,4 +1,6 @@
 //app.js
+import { wxRequest } from './utils/request';
+
 App({
   onLaunch: function () {
     // 展示本地存储能力
@@ -12,7 +14,6 @@ App({
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       }
     })
-    let userInfo;
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -21,7 +22,24 @@ App({
           wx.getUserInfo({
             success: res => {
               // 可以将 res 发送给后台解码出 unionId
-              userInfo = res.userInfo
+              this.globalData.userInfo = res.userInfo;
+
+              const userId = wx.getStorageSync('userId');
+              const { avatarUrl, nickName, gender } = res.userInfo;
+
+              wxRequest('/userInfo/update', {
+                method: 'post',
+                data: {
+                  avatarUrl,
+                  nickName,
+                  gender,
+                  userId
+                }
+              }).then((res) => {
+                console.log(res);
+              }).catch((err) => {
+                console.log(err);
+              })
 
               console.log(res.userInfo);
 
@@ -35,9 +53,9 @@ App({
         }
       }
     })
-    this.globalData.userInfo = userInfo;
   },
   globalData: {
     userInfo: null
-  }
+  },
+  wxRequest
 })

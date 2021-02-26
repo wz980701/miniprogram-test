@@ -33,9 +33,9 @@ export function doLogin() {
                                 console.log(res);
                                 isLogining = false;
                                 if (res.code === 200) {
-                                    const { userid, session_key } = res.data;
+                                    const { userId, session_key } = res.data;
                                     wx.setStorageSync(SESSION_KEY, session_key);
-                                    wx.setStorageSync('userId', userid);
+                                    wx.setStorageSync('userId', userId);
                                     resolve();
                                 } else {
                                     reject(res.msg);

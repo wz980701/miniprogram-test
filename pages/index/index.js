@@ -53,6 +53,18 @@ Page({
     app.globalData.userInfo = userInfo;
     wx.setStorageSync('isRegist', true);
     const { nickName, gender, avatarUrl } = userInfo;
+    const userid = wx.getStorageSync('userid');
+
+    app.wxRequest(API.setUserInfo, {
+      userid,
+      nickName,
+      gender,
+      avatarUrl
+    }).then((res) => {
+      console.log(res);
+    }).catch((err) => {
+      console.log(err);
+    });
     
     this.setData({
       userInfo,
