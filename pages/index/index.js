@@ -3,6 +3,9 @@
 const app = getApp()
 
 import { wxRequest } from '../../utils/request';
+import { removeImgs, getImgs } from '../../utils/interface/community';
+import { like, ownerList } from '../../utils/interface/dynamic';
+
 import API from '../../utils/api';
 
 Page({
@@ -19,7 +22,7 @@ Page({
     })
   },
   onLoad: function () {
-    this.getTest();
+    this.getTestToken();
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -53,13 +56,14 @@ Page({
     app.globalData.userInfo = userInfo;
     wx.setStorageSync('isRegist', true);
     const { nickName, gender, avatarUrl } = userInfo;
-    const userid = wx.getStorageSync('userid');
 
     app.wxRequest(API.setUserInfo, {
-      userid,
-      nickName,
-      gender,
-      avatarUrl
+      method: "post",
+      data: {
+        nickName,
+        gender,
+        avatarUrl
+      }
     }).then((res) => {
       console.log(res);
     }).catch((err) => {
@@ -71,11 +75,72 @@ Page({
       hasUserInfo: true
     });
   },
-  getTest () {
-    wxRequest(API.test, {}).then((res) => {
-      console.log('res>>>>', res);
-    }).catch(err => {
-      console.log('err>>>>>', err);
+  getTestToken() {
+    ownerList().then((res) => {
+      console.log(res);
+    }).catch((err) => {
+      console.log(err);
     });
+  },
+  handleClick() {
+    removeImgs().then((res) => {
+      console.log(res);
+    }).catch((err) => {
+      console.log(err);
+    });
+  },
+  onUpload() {
+    wx.chooseImage({
+      count: 1,
+      success: function (res) {
+        const tempFilePaths = res.tempFilePaths;
+        for (let item of tempFilePaths) {
+          wx.uploadFile({
+            url: 'http://localhost:3000/api/file/setBackgroundUrl',
+            filePath: item,
+            name: 'file',
+            header: {
+              'content-type': 'multipart/form-data',
+              'Authorization': `Bearer ${wx.getStorageSync('token') || ''}`
+            },
+            formData: {
+              communityId: 1
+            },
+            success: function (res) {
+              console.log(res);
+            },
+            fail: function (err) {
+              console.log(err);
+            }
+          });
+        }
+      }
+    });
+  },
+  onEditDynamic() {
+    wx.downloadFile({
+      url: "http://graduation-jeremy.oss-cn-beijing.aliyuncs.com/community/1/wxff61119691f8a0d5.o6zAJs4MekovglIXHeJI-_olRW_I.PLa0odBFc47s7081b38aa759f9c00d1ab0ee294d3fd0.png",
+      success: function (res) {
+        const tempFilePath = res.tempFilePath;
+        wx.uploadFile({
+          url: 'http://localhost:3000/api/dynamic/edit',
+          filePath: tempFilePath,
+          name: 'file',
+          header: {
+            'content-type': 'multipart/form-data'
+          },
+          formData: {
+            dynamicId: 3,
+            content: 'haha1'
+          },
+          success: function (res) {
+            console.log(res);
+          },
+          fail: function (err) {
+            console.log(err);
+          }
+        });
+      }
+    })
   }
 });

@@ -25,19 +25,27 @@ const wxRequest = async (subUrl, params = {}) => {
             const { header, method, data } = options;
             wx.request({
                 url,
-                header,
+                header: {
+                    ...header,
+                    "Authorization": `Bearer ${wx.getStorageSync('token') || ''}`
+                }, 
                 method,
                 data,
-                success: res => {
-                    const { code, data } = res.data;
+                success: async res => {
+                    const { code, data: resData } = res.data;
                     if (res && code === 200) {
-                        resolve(data);
+                        if (resData) resolve(resData);
+                        else resolve(res.data);
                     } else {
                         let err = {
                             request: res.request,
                             response: res.data
                         }
                         res.err = err;
+                        if (res.data && (res.data.error_code === 10001)) {
+                            wx.removeStorageSync('token');
+                            return await wxRequest(subUrl, params);
+                        }
                         reject(res);
                     }
                 },

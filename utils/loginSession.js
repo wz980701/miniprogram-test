@@ -6,6 +6,7 @@ let isSessionFresh = false;
 export function checkSession() {
     return new Promise((resolve, reject) => {
         const session = wx.getStorageSync(SESSION_KEY);
+        const token = wx.getStorageSync('token');
         if (isCheckingSession) {
             setTimeout(() => {
                 checkSession().then(res => {
@@ -14,7 +15,7 @@ export function checkSession() {
                     reject(err);
                 });
             }, 500);
-        } else if (!isSessionFresh && session) {
+        } else if (!isSessionFresh && session && token) {
             isCheckingSession = true;
             wx.checkSession({
                 success: () => {
@@ -36,6 +37,12 @@ export function checkSession() {
                 complete: () => {
                     isCheckingSession = false;
                 }
+            });
+        } else if (!token) {
+            doLogin().then(res => {
+                resolve(res);
+            }).catch(err => {
+                reject(err);
             });
         } else {
             doLogin().then(res => {

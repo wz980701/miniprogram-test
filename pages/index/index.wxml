@@ -10,4 +10,7 @@
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view>
+  <button bindtap="onUpload">上传文件</button>
+  <button bindtap="onEditDynamic">编辑动态</button>
+  <button bindtap="handleClick">点击</button>
 </view>
