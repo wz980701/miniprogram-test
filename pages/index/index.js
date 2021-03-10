@@ -3,8 +3,8 @@
 const app = getApp()
 
 import { wxRequest } from '../../utils/request';
-import { removeImgs, getImgs } from '../../utils/interface/community';
-import { like, ownerList } from '../../utils/interface/dynamic';
+import {  deleteAnnounce } from '../../utils/interface/community';
+import { removeComment } from '../../utils/interface/dynamic';
 
 import API from '../../utils/api';
 
@@ -76,14 +76,14 @@ Page({
     });
   },
   getTestToken() {
-    ownerList().then((res) => {
-      console.log(res);
-    }).catch((err) => {
-      console.log(err);
-    });
+    // getUsers().then((res) => {
+    //   console.log(res);
+    // }).catch((err) => {
+    //   console.log(err);
+    // });
   },
   handleClick() {
-    removeImgs().then((res) => {
+    removeComment().then((res) => {
       console.log(res);
     }).catch((err) => {
       console.log(err);
@@ -96,7 +96,7 @@ Page({
         const tempFilePaths = res.tempFilePaths;
         for (let item of tempFilePaths) {
           wx.uploadFile({
-            url: 'http://localhost:3000/api/file/setBackgroundUrl',
+            url: 'http://localhost:3000/api/dynamic/userRelease',
             filePath: item,
             name: 'file',
             header: {
@@ -104,7 +104,7 @@ Page({
               'Authorization': `Bearer ${wx.getStorageSync('token') || ''}`
             },
             formData: {
-              communityId: 1
+              content: 'xixi2'
             },
             success: function (res) {
               console.log(res);
@@ -127,11 +127,12 @@ Page({
           filePath: tempFilePath,
           name: 'file',
           header: {
-            'content-type': 'multipart/form-data'
+            'content-type': 'multipart/form-data',
+            'Authorization': `Bearer ${wx.getStorageSync('token') || ''}`
           },
           formData: {
-            dynamicId: 3,
-            content: 'haha1'
+            dynamicId: 6,
+            content: 'xixi4'
           },
           success: function (res) {
             console.log(res);

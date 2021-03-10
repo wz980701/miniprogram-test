@@ -25,8 +25,8 @@ export const createCommunity = async () => {
     return await wxRequest('/community/create', {
         method: 'post',
         data: {
-            communityName: '舞蹈社',
-            info: 'dance'
+            communityName: '音乐社',
+            info: 'music'
         }
     })
 }
@@ -35,7 +35,7 @@ export const addAnnouce = async () => {
     return await wxRequest('/community/addAnnounce', {
         method: 'post',
         data: {
-            content: '公告1',
+            content: '公告2',
             communityId: 1
         }
     });
@@ -53,8 +53,8 @@ export const updateAnnounce = async () => {
     return await wxRequest('/community/updateAnnounce', {
         method: 'post',
         data: {
-            id: 5,
-            content: '公告修改'
+            id: 6,
+            content: '公告修改2'
         }
     });
 }
@@ -62,7 +62,7 @@ export const updateAnnounce = async () => {
 export const deleteAnnounce = async () => {
     return await wxRequest('/community/deleteAnnounce', {
         data: {
-            id: 5
+            id: 6
         }
     });
 }
@@ -86,7 +86,7 @@ export const update = async () => {
         data: {
             id: 1,
             communityName: '轮滑社',
-            info: '冲冲冲1'
+            info: '冲冲冲2'
         }
     });
 }
@@ -115,4 +115,66 @@ export const getImgs = async () => {
             communityId: 1
         }
     });
+}
+
+export const join = async () => {
+    return await wxRequest('/community/join', {
+        data: {
+            communityId: 1
+        }
+    })
+}
+
+export const getApplyList = async () => {
+    return await wxRequest('/community/getApplyList', {
+        data: {
+            communityId: 1
+        }
+    });
+}
+
+export const userCommunityList = async () => {
+    return await wxRequest('/community/userCommunityList', {
+        data: {}
+    });
+}
+
+export const getSelectCommunityList = async () => {
+    return await wxRequest('/community/getSelectCommunityList', {
+        data: {
+            level: 100
+        }
+    })
+}
+
+export const passUser = async () => {
+    return await wxRequest('/community/passUser', {
+        data: {
+            id: 5
+        }
+    })
+}
+
+export const getUsers = async () => {
+    return await wxRequest('/community/getUsers', {
+        data: {
+            communityId: 1
+        }
+    })
+}
+
+export const removeUser = async () => {
+    return await wxRequest('/community/removeUser', {
+        data: {
+            id: 5
+        }
+    })
+}
+
+export const addManager = async () => {
+    return await wxRequest('/community/addManager', {
+        data: {
+            id: 5
+        }
+    })
 }

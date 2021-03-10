@@ -43,3 +43,31 @@ export const ownerList = async () => {
         data: {}
     });
 }
+
+export const addComment = async () => {
+    return await wxRequest('/dynamic/addComment', {
+        method: 'post',
+        data: {
+            content: 'comment1',
+            dynamicId: 6
+        }
+    })
+}
+
+export const editComment = async () => {
+    return await wxRequest('/dynamic/editComment', {
+        method: 'post',
+        data: {
+            content: 'comment5',
+            id: 2
+        }
+    });
+}
+
+export const removeComment = async () => {
+    return await wxRequest('/dynamic/removeComment', {
+        data: {
+            id: 2
+        }
+    })
+}
