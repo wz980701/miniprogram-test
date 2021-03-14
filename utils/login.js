@@ -7,8 +7,7 @@ let isLogining = false;
 export function doLogin() {
     return new Promise((resolve, reject) => {
         const session = wx.getStorageSync(SESSION_KEY);
-        const token = wx.getStorageSync('token');
-        if (session && token) {
+        if (session) {
             resolve();
         } else if (isLogining) {
             setTimeout(() => {

@@ -3,7 +3,7 @@
 const app = getApp()
 
 import { wxRequest } from '../../utils/request';
-import {  deleteAnnounce } from '../../utils/interface/community';
+import {  getCommunityInfo } from '../../utils/interface/community';
 import { removeComment } from '../../utils/interface/dynamic';
 
 import API from '../../utils/api';
@@ -76,11 +76,11 @@ Page({
     });
   },
   getTestToken() {
-    // getUsers().then((res) => {
-    //   console.log(res);
-    // }).catch((err) => {
-    //   console.log(err);
-    // });
+    getCommunityInfo().then((res) => {
+      console.log(res);
+    }).catch((err) => {
+      console.log(err);
+    });
   },
   handleClick() {
     removeComment().then((res) => {
