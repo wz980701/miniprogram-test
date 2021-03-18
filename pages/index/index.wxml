@@ -1,16 +1,39 @@
-<!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
-  <button bindtap="onUpload">上传文件</button>
-  <button bindtap="onEditDynamic">编辑动态</button>
-  <button bindtap="handleClick">点击</button>
+<view class="index">
+    <van-search
+        class="index-search"
+        value="{{searchContent}}"
+        shape="round"
+        placeholder="请输入社团名进行搜索"
+    ></van-search>
+    <view class="index-swiper-box">
+        <swiper
+            class="index-swiper"
+            indicator-dots="{{true}}"
+            autoplay="{{true}}"
+            interval="3000"
+            duration="500"
+        >
+            <block wx:for="{{swiperImgList}}">
+                <swiper-item>
+                    <image src="{{item}}" class="swiper-item" mode="widthFix" />
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+    <van-dropdown-menu>
+        <van-dropdown-item 
+        value="{{filterTag}}" 
+        options="{{filterList}}" 
+        title-class="index-dropdown-menu-item"
+        bind:change="initCommunityList"
+     />
+    </van-dropdown-menu>
+    <view class="index-community-list">
+        <view class="index-community-item" wx:for="{{communityList}}" data-id="{{item.id}}" bind:tap="routeToInfo">
+            <image class="avatarUrl" src="{{item.avatarUrl}}" mode="scaleToFill" />
+            <view class="right-side">
+                <view class="communityName">{{item.communityName}}</view>
+            </view>
+        </view>
+    </view>
 </view>

@@ -1,4 +1,4 @@
-const host = 'http://localhost:3000/api';
+const host = 'http://10.98.163.144:3000/api';
 const app = getApp();
 
 import { checkSession } from './loginSession';

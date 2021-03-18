@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "社团",
+    "usingComponents": {
+        "van-button": "@vant/weapp/button/index"
+    }
+}

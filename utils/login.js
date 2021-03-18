@@ -52,6 +52,9 @@ export function doLogin() {
                     }
                 },
                 fail: (err) => {
+                    wx.showToast({
+                        title: '登录失败'
+                    });
                     isLogining = false;
                     reject(err);
                 }

@@ -1,13 +1,48 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/test/index",
+    "pages/logs/logs",
+    "pages/community/index",
+    "pages/space/index",
+    "pages/user/index",
+    "pages/communityInfo/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#C70039",
+    "navigationBarTitleText": "Jeremy",
+    "navigationBarTextStyle": "white",
+    "onReachBottomDistance": 50
+  },
+  "tabBar": {
+    "color": "#333",
+    "selectedColor": "#C70039",
+    "borderStyle": "black",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/nav/home-off.png",
+        "selectedIconPath": "images/nav/home-on.png",
+        "text": "首页"
+      }, {
+        "pagePath": "pages/community/index",
+        "iconPath": "images/nav/community-off.png",
+        "selectedIconPath": "images/nav/community-on.png",
+        "text": "社团"
+      }, {
+        "pagePath": "pages/space/index",
+        "iconPath": "images/nav/space-off.png",
+        "selectedIconPath": "images/nav/space-on.png",
+        "text": "社区"
+      }, {
+        "pagePath": "pages/user/index",
+        "iconPath": "images/nav/user-off.png",
+        "selectedIconPath": "images/nav/user-on.png",
+        "text": "个人中心"
+      }
+    ]
   },
   "sitemapLocation": "sitemap.json"
 }
