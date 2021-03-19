@@ -23,5 +23,8 @@ Page({
                 title: '获取社团信息失败'
             });
         })
+    },
+    joinCommunity () { // 加入社团
+        
     }
 });

@@ -5,6 +5,18 @@
         <view class="community-name">{{communityInfo.communityName}}</view>
     </view>
     <view class="community-userNum">
-        
+        <van-icon name="friends" size="20px" color="#ccc" custom-style="padding-right:10rpx;"></van-icon>
+        {{communityInfo.userNum}}
+    </view>
+    <view class="community-info">
+        <view class="info-tag">社团介绍</view>
+        <view class="info-content">{{communityInfo.info}}</view>
+    </view>
+    <view class="community-footer">
+        <view class="footer-share">
+            <van-icon name="share-o" size="18px" color="#ccc" custom-style="display:block;margin:0 auto;" />
+            <view class="share-text">分享</view>
+        </view>
+        <button type="primary" class="footer-btn" bindtap="joinCommunity">立即加入社团</button>
     </view>
 </view>

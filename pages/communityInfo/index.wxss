@@ -1,4 +1,74 @@
+.communityInfo {
+    overflow: hidden;
+}
 .background-img {
     display: block;
     width: 100%;
+}
+.community-tag {
+    display: flex;
+    align-items: center;
+    padding: 20rpx 20rpx 0;
+}
+.community-tag .avatar-img {
+    display: block;
+    width: 150rpx;
+    height: 150rpx;
+    border-radius: 50%;
+    border: 1px solid #f2f3f4;
+    overflow: hidden;
+}
+.community-tag .community-name {
+    padding-left: 30rpx;
+    font-size: 35rpx;
+}
+.community-userNum {
+    float: right;
+    padding-right: 20rpx;
+    color: #ccc;
+    font-size: 27rpx;
+    height: 40rpx;
+    display: flex;
+    align-items: center;
+}
+.community-info {
+    margin-top: 30rpx;
+}
+.community-info .info-tag {
+    font-size: 35rpx;
+    padding-left: 20rpx;
+}
+.community-info .info-tag::before {
+    content: '';
+    display: inline-block;
+    width: 8rpx;
+    height: 28rpx;
+    margin-right: 12rpx;
+    background-color: #C70039;
+}
+.community-info .info-content {
+    padding: 30rpx 30rpx 0;
+    font-size: 30rpx;
+    line-height: 40rpx;
+}
+.community-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 20rpx 20rpx;
+    box-sizing: border-box;
+    border-top: 1rpx solid #f2f3f4;
+    display: flex;
+    align-items: center;
+}
+.community-footer .footer-share {
+    width: 100rpx;
+    text-align: center;
+    font-size: 25rpx;
+    color: #ccc;
+}
+.community-footer .footer-btn {
+    display: block;
+    flex: 1;
+    font-size: 38rpx;
 }
