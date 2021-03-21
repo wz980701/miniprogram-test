@@ -1,0 +1,31 @@
+.user {
+    height: 100%;
+    background-color: #f2f3f4;
+}
+.user .user-header {
+    height: 300rpx;
+    background-color: #C70039;
+    display: flex;
+    justify-content: center;
+}
+.user-header .getUserInfo-btn {
+    background: transparent;
+}
+.user-header .getUserInfo-btn::after {
+    border: none;
+}
+.getUserInfo-btn .user-info {
+    width: 150rpx;
+    text-align: center;
+    text-align: center;
+    color: #fff;
+    font-size: 28rpx;
+}
+.user-info .avatar {
+    width: 100%;
+    display: block;
+    height: 150rpx;
+    margin-bottom: 15rpx;
+    border-radius: 50%;
+    overflow: hidden;
+}

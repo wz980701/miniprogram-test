@@ -1,1 +1,25 @@
-<view class="user">个人中心</view>
+<view class="user">
+    <view class="user-header">
+        <button class="getUserInfo-btn" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+            <view class="user-info">
+                <block wx:if="{{!hasUserInfo}}">
+                    <image class="avatar" src="https://graduation-jeremy.oss-cn-beijing.aliyuncs.com/default/ce10818cef2696f7445bd0673c51d1ba.png" mode="scaleToFill" lazy-load="false" />
+                    登录/注册
+                </block>
+                <block wx:else>
+                    <image class="avatar" src="{{userInfo.avatarUrl}}" mode="scaleToFill" lazy-load="false" />
+                    {{userInfo.nickName}}
+                </block>       
+            </view> 
+        </button>    
+    </view>
+    <view class="user-card-list">
+        <view class="community-card">
+            
+        </view>
+        <view class="service-card">
+            
+        </view>      
+    </view>
+            
+</view>

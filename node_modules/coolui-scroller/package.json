@@ -1,26 +1,56 @@
 {
-  "name": "coolui-scroller",
-  "version": "2.0.2",
+  "_args": [
+    [
+      "coolui-scroller@2.0.2",
+      "E:\\前端\\miniprogram-test"
+    ]
+  ],
+  "_from": "coolui-scroller@2.0.2",
+  "_id": "coolui-scroller@2.0.2",
+  "_inBundle": false,
+  "_integrity": "sha1-re12j7hUFcTri9qMc0osHVsFwsg=",
+  "_location": "/coolui-scroller",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "coolui-scroller@2.0.2",
+    "name": "coolui-scroller",
+    "escapedName": "coolui-scroller",
+    "rawSpec": "2.0.2",
+    "saveSpec": null,
+    "fetchSpec": "2.0.2"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "http://nexus.inwesure.com/repository/npm-group/coolui-scroller/-/coolui-scroller-2.0.2.tgz",
+  "_spec": "2.0.2",
+  "_where": "E:\\前端\\miniprogram-test",
+  "author": {
+    "name": "wzs"
+  },
+  "bugs": {
+    "url": "https://github.com/wzs28150/coolui-scroller/issues"
+  },
   "description": "微信小程序Scroll 上拉加载下拉刷新组件",
-  "main": "./index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wzs28150/coolui-scroller.git"
-  },
+  "homepage": "https://github.com/wzs28150/coolui-scroller#readme",
   "keywords": [
     "weapp",
     "scroller",
     "pull-to-refresh",
     "push-to-loadmore"
   ],
-  "miniprogram": "./",
-  "author": "wzs",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/wzs28150/coolui-scroller/issues"
+  "main": "./index.js",
+  "miniprogram": "./",
+  "name": "coolui-scroller",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wzs28150/coolui-scroller.git"
   },
-  "homepage": "https://github.com/wzs28150/coolui-scroller#readme"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "2.0.2"
 }
