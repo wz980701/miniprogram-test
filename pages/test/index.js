@@ -2,7 +2,7 @@
 //获取应用实例
 const app = getApp()
 
-import {  getCommunityInfo } from '../../utils/interface/community';
+import {  getCommunityInfo, createCommunity } from '../../utils/interface/community';
 import { removeComment } from '../../utils/interface/dynamic';
 
 import API from '../../utils/api';
@@ -82,7 +82,7 @@ Page({
     });
   },
   handleClick() {
-    removeComment().then((res) => {
+    createCommunity().then((res) => {
       console.log(res);
     }).catch((err) => {
       console.log(err);

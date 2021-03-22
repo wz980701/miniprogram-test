@@ -14,11 +14,31 @@
         </button>    
     </view>
     <view class="user-card-list">
-        <view class="community-card">
-            
+        <view class="community-card card">
+            <view class="card-tag">我的社团</view>
+            <view class="user-community-list card-list">
+                <view class="item item-first">
+                    <van-icon name="friends" color="#ccffbd" size="32px" />
+                    已加入 
+                </view>
+                <view class="item item-second">
+                    <van-icon name="todo-list" color="#e84545" size="32px" />
+                    待审核
+                </view>
+                <view class="item item-last">
+                    <van-icon name="add" color="#fed049" size="32px" />
+                    已创建
+                </view>
+            </view>
         </view>
-        <view class="service-card">
-            
+        <view class="service-card card">
+            <view class="card-tag">我的服务</view>
+            <view class="user-service-list card-list">
+                <view class="item item-first">
+                    <van-icon name="manager" color="#007580" size="32px"></van-icon>
+                    我的信息
+                </view>
+            </view>
         </view>      
     </view>
             

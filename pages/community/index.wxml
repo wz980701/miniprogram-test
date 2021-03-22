@@ -1,19 +1,27 @@
 <view class="community">
-    <van-search
-        class="community-search"
-        value="{{searchContent}}"
-        shape="round"
-        placeholder="请输入关键字进行社团搜索"
-    ></van-search>
-    <coolui-scroll class="community-list-box" scrollOption="{{scroll}}" bindrefresh="refresh" bindloadMore="loadMore" background="#fff">
-            <view class="community-list" slot="inner">
-                <view class="community-item" wx:for="{{communityList}}" data-id="{{item.id}}" bind:tap="routeToInfo">
-                    <image class="avatarUrl" src="{{item.avatarUrl}}" mode="scaleToFill" />
-                    <view class="right-side">
-                        <view class="communityName">{{item.communityName}}</view>
+    <view class="header">
+        <van-search
+            class="community-search"
+            value="{{searchContent}}"
+            shape="round"
+            placeholder="请输入关键字进行社团搜索"
+            bind:change="onChange"
+            bind:search="getSearchList"
+            bind:clear="onClear"
+            bind:blur="onBlur"
+        ></van-search>
+    </view>
+    <view class="scroll-box" style="height: {{scrollViewHeight}}px">
+        <coolui-scroll class="community-list-component" scrollOption="{{scroll}}" bindrefresh="refresh" bindloadMore="loadMore" background="#fff">
+                <view class="community-list" slot="inner">
+                    <view class="community-item item" wx:for="{{communityList}}" wx:key="{{index}}" data-id="{{item.id}}" bind:tap="routeToInfo">
+                        <image class="avatarUrl" src="{{item.avatarUrl}}" mode="scaleToFill" />
+                        <view class="right-side">
+                            <view class="communityName">{{item.communityName}}</view>
+                        </view>
+                        <button class="join-btn" type="primary" bind:tap="routeToInfo" data-id="{{item.id}}">加入社团</button>
                     </view>
-                    <button class="join-btn" type="primary" bind:tap="routeToInfo" data-id="{{item.id}}">加入社团</button>
                 </view>
-            </view>
-    </coolui-scroll>
+        </coolui-scroll>
+    </view>
 </view>

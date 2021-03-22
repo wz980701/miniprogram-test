@@ -25,10 +25,10 @@ export const createCommunity = async () => {
     return await wxRequest('/community/create', {
         method: 'post',
         data: {
-            communityName: '音乐社',
-            info: 'music'
+            communityName: '天文社',
+            info: '一起来看流星雨'
         }
-    })
+    });
 }
 
 export const addAnnouce = async () => {

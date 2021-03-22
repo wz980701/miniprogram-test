@@ -29,3 +29,33 @@
     border-radius: 50%;
     overflow: hidden;
 }
+.user-card-list {
+    width: 100%;
+    position: absolute;
+    top: 250rpx;
+}
+.user-card-list .card {
+    background-color: #fff;
+    width: 90%;
+    margin: 20rpx auto;
+    box-sizing: border-box;
+    padding: 20rpx 25rpx;
+    border-radius: 10rpx;
+    overflow: hidden;
+}
+.card .card-tag {
+    font-size: 30rpx;
+    line-height: 40rpx;
+}
+.card .card-list {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 30rpx 0;
+}
+.card-list .item {
+    width: 100rpx;
+    text-align: center;
+    font-size: 25rpx;
+    line-height: 40rpx;
+}
