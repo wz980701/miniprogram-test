@@ -1,0 +1,22 @@
+{
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/userCommunity/index",
+          "pathName": "pages/userCommunity/index",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

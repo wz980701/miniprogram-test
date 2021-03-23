@@ -13,10 +13,10 @@
         <view class="info-content">{{communityInfo.info}}</view>
     </view>
     <view class="community-footer">
-        <view class="footer-share">
+        <button open-type="share" class="footer-share" size="default">
             <van-icon name="share-o" size="18px" color="#ccc" custom-style="display:block;margin:0 auto;" />
             <view class="share-text">分享</view>
-        </view>
+        </button>
         <button type="primary" class="footer-btn" bindtap="joinCommunity">立即加入社团</button>
     </view>
 </view>

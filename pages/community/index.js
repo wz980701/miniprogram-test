@@ -20,6 +20,9 @@ Page({
                 limit: INIT_SIZE,
                 length: 0
             },
+            empty: {
+                img: 'https://graduation-jeremy.oss-cn-beijing.aliyuncs.com/default/空.png'
+            },
             refresh: {
                 type: 'default',
                 style: 'black',

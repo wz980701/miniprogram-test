@@ -1,1 +1,6 @@
-<view class="space">社区</view>
+<view class="space">
+    <van-tabs active="{{active}}" class="tab-list" bind:change="onTabChange">
+        <van-tab title="社团动态" name="community" />
+        <van-tab title="用户动态" name="user" />
+    </van-tabs>
+</view>

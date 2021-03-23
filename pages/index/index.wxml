@@ -14,20 +14,4 @@
             </block>
         </swiper>
     </view>
-    <van-dropdown-menu>
-        <van-dropdown-item 
-        value="{{filterTag}}" 
-        options="{{filterList}}" 
-        title-class="index-dropdown-menu-item"
-        bind:change="initCommunityList"
-     />
-    </van-dropdown-menu>
-    <view class="index-community-list">
-        <view class="index-community-item" wx:for="{{communityList}}" data-id="{{item.id}}" bind:tap="routeToInfo">
-            <image class="avatarUrl" src="{{item.avatarUrl}}" mode="scaleToFill" />
-            <view class="right-side">
-                <view class="communityName">{{item.communityName}}</view>
-            </view>
-        </view>
-    </view>
 </view>

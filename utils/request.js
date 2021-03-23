@@ -49,8 +49,7 @@ const wxRequest = async (subUrl, params = {}) => {
                             response: res.data
                         }
                         res.err = err;
-                        if (res.data && (res.data.error_code === 10001)) {
-                            wx.removeStorageSync('token');
+                        if (res.data && (res.data.error_code === 10001)) { // token丢失
                             return await wxRequest(subUrl, params);
                         }
                         reject(res);

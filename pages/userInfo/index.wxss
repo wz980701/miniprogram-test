@@ -1,0 +1,28 @@
+.userInfo .userInfo-container {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 30rpx;
+}
+.userInfo-container .item {
+    width: 100%;
+    padding: 25rpx 10rpx;
+    border-bottom: 1rpx solid #f2f3f4;
+    font-size: 30rpx;
+    display: flex;
+    justify-content: space-between;
+}
+.item .item-tag {
+    width: 120rpx;
+    text-align: justify;
+    text-align-last: justify;
+    color: #707070;
+}
+.userInfo-container .avatarImg {
+    line-height: 80rpx;
+}
+.avatarImg .avatar {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+    overflow: hidden;
+}

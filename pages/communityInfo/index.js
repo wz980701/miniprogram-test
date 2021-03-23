@@ -26,5 +26,13 @@ Page({
     },
     joinCommunity () { // 加入社团
         
+    },
+    onShareAppMessage () {
+        const { communityInfo } = this.data;
+        return {
+            title: `欢迎加入${communityInfo.communityName}`,
+            path: `/pages/communityInfo/index?id=${communityInfo.id}`,
+            imgPathUrl: 'https://graduation-jeremy.oss-cn-beijing.aliyuncs.com/default/2d5eda9d2b9691d1318d1920715d4a11.jpg'
+        }
     }
 });

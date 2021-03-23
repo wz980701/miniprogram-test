@@ -1,0 +1,14 @@
+.contact {
+    width: 100%;
+    height: 100%;
+    background-color: #f2f3f4;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    display: block;
+}
+.submit-btn {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 30rpx;
+}

@@ -1,0 +1,16 @@
+<view class="userInfo">
+    <view class="userInfo-container">
+        <view class="avatarImg item">
+            <view class="item-tag">微信头像</view>
+            <image class="avatar" src="{{userInfo.avatarUrl}}" mode="scaleToFill" />
+        </view>
+        <view class="nickName item">
+            <view class="item-tag">昵称</view>
+            <view>{{userInfo.nickName}}</view>
+        </view>
+        <view class="gender item">
+            <view class="item-tag">性别</view>
+            <view>{{userInfo.gender === 1 ? '男' : '女'}}</view>
+        </view>
+    </view>
+</view>

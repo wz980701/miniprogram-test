@@ -1,0 +1,12 @@
+<view class="contact">
+    <van-field
+        input-class="contact-input"
+        value="{{ message }}"
+        label="意见"
+        type="textarea"
+        placeholder="请输入意见"
+        autosize
+        border="{{ false }}"
+    />
+    <van-button round type="info" custom-class="submit-btn" bind:tap="onSubmit">提交</van-button>
+</view>

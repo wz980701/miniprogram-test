@@ -1,0 +1,8 @@
+<view class="userCommunity">
+    <van-tabs active="{{active}}" class="tab-list" bind:change="onTabChange">
+        <van-tab title="已加入" name="joined" />
+        <van-tab title="待审核" name="passing" />
+        <van-tab title="已创建" name="created" />
+    </van-tabs>
+    <community-list type="{{active}}" scrollHeight="{{scrollViewHeight}}" />
+</view>

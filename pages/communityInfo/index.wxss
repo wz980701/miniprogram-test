@@ -62,10 +62,15 @@
     align-items: center;
 }
 .community-footer .footer-share {
-    width: 100rpx;
     text-align: center;
     font-size: 25rpx;
     color: #ccc;
+    background: transparent;
+    line-height: 30rpx !important;
+}
+.community-footer .footer-share::after {
+    padding: 0;
+    border: none;
 }
 .community-footer .footer-btn {
     display: block;

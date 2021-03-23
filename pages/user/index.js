@@ -3,7 +3,8 @@ const app = getApp();
 Page({
     data: {
         userInfo: {},
-        hasUserInfo: false
+        hasUserInfo: false,
+        token: wx.getStorageSync('token')
     },
     onLoad() {
         if (app.globalData.userInfo) {
@@ -45,6 +46,22 @@ Page({
         this.setData({
             userInfo,
             hasUserInfo: true
+        });
+    },
+    routeToUserCommunity (e) {
+        const { id } = e.currentTarget.dataset;
+        wx.navigateTo({
+            url: `/pages/userCommunity/index?id=${id}`
+        });
+    },
+    routeToUserInfo () {
+        wx.navigateTo({
+            url: '/pages/userInfo/index'
+        });
+    },
+    routeToContact () {
+        wx.navigateTo({
+            url: '/pages/contact/index'
         });
     }
 });
