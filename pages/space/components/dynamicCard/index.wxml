@@ -1,0 +1,14 @@
+<view class="dynamic-card">
+    <view class="card-title">
+        <image class="card-portrait" src="{{dynamic.userInfo.avatarUrl}}" />
+        <view class="card-box">
+            <view class="card-nickName">{{dynamic.userInfo.nickName}}</view>
+            <view class="card-time">{{dynamic.updateTime}}</view>
+        </view>
+    </view>
+    <view class="card-content">{{dynamic.content}}</view>
+    <view class="dynamic-img">
+        <image class="img" src="{{dynamic.img}}" mode="aspectFill" bind:tap="onPreviewImage" />
+    </view>
+    <dynamic-control />
+</view>

@@ -3,7 +3,7 @@
 const app = getApp()
 
 import {  getCommunityInfo, createCommunity } from '../../utils/interface/community';
-import { removeComment } from '../../utils/interface/dynamic';
+import { userList } from '../../utils/interface/dynamic';
 
 import API from '../../utils/api';
 
@@ -75,7 +75,7 @@ Page({
     });
   },
   getTestToken() {
-    getCommunityInfo().then((res) => {
+    userList().then((res) => {
       console.log(res);
     }).catch((err) => {
       console.log(err);

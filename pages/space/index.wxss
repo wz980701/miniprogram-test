@@ -1,0 +1,23 @@
+.tab-list {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+.release-btn {
+    position: fixed;
+    top: 400rpx;
+    right: 30rpx;
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #C70039;
+    box-shadow: 0rpx 3rpx 8rpx 0rpx rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dynamic-item {
+    margin-bottom: 20rpx;
+    box-sizing: border-box;
+}

@@ -39,9 +39,6 @@ export function checkSession() {
                 }
             });
         } else if (!token) {
-            wx.removeStorageSync(SESSION_KEY);
-            wx.removeStorageSync('token');
-            console.log(wx.getStorageSync(SESSION_KEY));
             doLogin().then(res => {
                 resolve(res);
             }).catch(err => {

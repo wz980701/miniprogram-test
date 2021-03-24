@@ -1,6 +1,7 @@
 const host = 'http://localhost:3000/api';
 const app = getApp();
 
+import { SESSION_KEY } from './login';
 import { checkSession } from './loginSession';
 
 const mergeRequestParams = (defaults, params) => {
@@ -50,7 +51,14 @@ const wxRequest = async (subUrl, params = {}) => {
                         }
                         res.err = err;
                         if (res.data && (res.data.error_code === 10001)) { // token丢失
-                            return await wxRequest(subUrl, params);
+                            wx.removeStorageSync(SESSION_KEY);
+                            wx.removeStorageSync('token');
+                            try {
+                                const res = await wxRequest(subUrl, params);
+                                resolve(res);
+                            } catch (err) {
+                                reject(err);
+                            }
                         }
                         reject(res);
                     }

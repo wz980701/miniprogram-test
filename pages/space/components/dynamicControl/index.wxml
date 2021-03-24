@@ -1,0 +1,19 @@
+<view class="ctrl">
+    <view class="ctrl-item" bind:tap="onSendComment">
+        <van-icon name="chat-o" custom-style="margin-right:12rpx;" size="20px" />
+        <view>评论</view>
+    </view>
+    <view class="ctrl-item" bind:tap="onLike">
+        <van-icon name="good-job-o" custom-style="margin-right:12rpx;" size="20px" />
+        <view>{{likeNum}}</view>
+    </view>
+</view>
+<van-popup
+    show="{{showDialog}}"
+    position="bottom"
+    custom-style="height:20%"
+    bind:close="onCloseDialog"
+>
+    <textarea bind:input="onInput" name="content" class="comment-content" placeholder="写评论" value="{{content}}" fixed="{{true}}" />
+    <button class="send" type="primary" bind:tap="onSend">发送</button>
+</van-popup>

@@ -1,7 +1,7 @@
 const app = getApp();
 
-const INIT_PAGE = 1;
-const INIT_SIZE = 8;
+import { INIT_PAGE, INIT_SIZE, scrollConf } from '../../../../config/config';
+
 const MAP = {
     'joined': 1,
     'passing': 0,
@@ -38,35 +38,7 @@ Component({
         size: INIT_SIZE,
         page: INIT_PAGE,
         curType: '',
-        scroll: {
-            pagination: {
-                page: INIT_PAGE,
-                totalPage: 0,
-                limit: INIT_SIZE,
-                length: 0
-            },
-            empty: {
-                img: 'https://graduation-jeremy.oss-cn-beijing.aliyuncs.com/default/空.png'
-            },
-            refresh: {
-                type: 'default',
-                style: 'black',
-                background: '#000'
-            },
-            loadmore: {
-                type: 'default',
-                icon: {
-                    img:  'http://upload-images.jianshu.io/upload_images/5726812-95bd7570a25bd4ee.gif'
-                },
-                background: '#f2f2f2', 
-                title: {
-                    show: true,
-                    text: '加载中',
-                    color: "#999",
-                    shadow: 5
-                }
-            }
-        }
+        scroll: scrollConf
     },
     methods: {
         getCommunityList (type) {
