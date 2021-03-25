@@ -3,7 +3,7 @@
         <van-tab title="社团动态" name="community" />
         <van-tab title="用户动态" name="user" />
     </van-tabs>
-    <view class="release-btn" wx:if="{{active === 'user'}}">
+    <view class="release-btn" wx:if="{{active === 'user'}}" bindtap="routeToEdit">
         <van-icon name="edit" color="#fff" />
     </view>
     <view class="dynamic-list-container" style="height:{{scrollViewHeight}}px;margin-top:{{headerHeight}}px;">
@@ -11,7 +11,7 @@
                 <view class="dynamic-list" slot="inner">
                     <view class="dynamic-item" wx:for="{{dynamicList}}">
                         <dynamic-card item="{{item}}" />
-                        <dynamic-control />
+                        <dynamic-control itemId="{{item.id}}" />
                     </view>
                 </view>
         </coolui-scroll>

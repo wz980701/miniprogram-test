@@ -1,5 +1,5 @@
 <view class="ctrl">
-    <view class="ctrl-item" bind:tap="onSendComment">
+    <view class="ctrl-item" bind:tap="showDialog">
         <van-icon name="chat-o" custom-style="margin-right:12rpx;" size="20px" />
         <view>评论</view>
     </view>
@@ -14,6 +14,14 @@
     custom-style="height:20%"
     bind:close="onCloseDialog"
 >
-    <textarea bind:input="onInput" name="content" class="comment-content" placeholder="写评论" value="{{content}}" fixed="{{true}}" />
-    <button class="send" type="primary" bind:tap="onSend">发送</button>
+    <textarea 
+        bind:input="onInput" 
+        name="content" 
+        class="comment-content" 
+        placeholder="写评论" 
+        value="{{content}}" 
+        fixed="{{true}}"
+        placeholder-style="font-size:30rpx;" 
+    />
+    <button class="send" type="primary" bind:tap="onSendComment">发送</button>
 </van-popup>

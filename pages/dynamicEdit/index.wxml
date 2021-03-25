@@ -1,0 +1,16 @@
+<view class="dynamic-edit">
+    <textarea class="content" placeholder="分享新鲜事" bindinput="onInput" maxlength="140" auto-focus="{{true}}" bindfocus="onFocus" bindblur="onBlur"></textarea>
+    <view class="image-list">
+        <view class="image-wrap">
+            <image class="image" src="{{image}}" mode="aspectFill" bind:tap="onPreviewImage" data-imgsrc="{{image}}" />
+            <van-icon name="delete-o" size="38rpx" custom-class="icon-delete" bind:tap="onDelImage" wx:if="{{!selectPhoto}}" />
+        </view>
+        <view class="image-wrap selectphoto" hidden="{{!selectPhoto}}" bind:tap="onChooseImage">
+            <van-icon name="plus" />
+        </view>
+    </view>
+</view>
+<view class="footer" style="bottom:{{footerBottom}}">
+    <text class="words-num">{{wordsNum}}</text>
+    <button class="send-btn" bind:tap="send">发布</button>
+</view>

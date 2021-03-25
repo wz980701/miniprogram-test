@@ -7,9 +7,8 @@ Page({
         size: INIT_SIZE,
         page: INIT_PAGE,
         scroll: scrollConf,
-        windowHeight: 0,
-        headerHeight: 0,
         scrollViewHeight: 0,
+        headerHeight: 0,
         dynamicList: []
     },
     onLoad () {
@@ -42,7 +41,12 @@ Page({
         this.getDynamicList();
     },
     loadMore () {
-        const nextPage = this.data.page + 1;
+        const { page, size, dynamicList } = this.data;
+        if (dynamicList.length < size)  {
+            wx.hideNavigationBarLoading();
+            return;
+        }
+        const nextPage = page + 1;
         this.setData({
             page: nextPage,
             'scroll.pagination.page': nextPage
@@ -55,12 +59,10 @@ Page({
         });
     },
     initScrollHeight () {
-        const that = this;
+        let windowHeight;
         wx.getSystemInfo({
             success: function(res) {
-                that.setData({
-                    windowHeight: res.windowHeight
-                });
+                windowHeight = res.windowHeight;
             }
         });
         let query = wx.createSelectorQuery().in(this);
@@ -68,12 +70,17 @@ Page({
         query.exec((res) => {
             let headerHeight = res[0].height;
 
-            let scrollViewHeight = this.data.windowHeight - headerHeight;
+            let scrollViewHeight = windowHeight - headerHeight;
 
             this.setData({
-                headerHeight,
-                scrollViewHeight
+                scrollViewHeight,
+                headerHeight
             });
         });
     },
+    routeToEdit () {
+        wx.navigateTo({
+            url: '/pages/dynamicEdit/index'
+        });
+    }
 });

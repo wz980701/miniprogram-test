@@ -1,0 +1,6 @@
+{
+    "component": true,
+    "usingComponents": {
+        "coolui-scroll": "coolui-scroller/index"
+    }
+}

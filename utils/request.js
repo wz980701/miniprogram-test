@@ -75,5 +75,6 @@ const wxRequest = async (subUrl, params = {}) => {
 }
 
 export {
-    wxRequest
+    wxRequest,
+    host
 }

@@ -6,9 +6,8 @@
             <view class="card-time">{{dynamic.updateTime}}</view>
         </view>
     </view>
-    <view class="card-content">{{dynamic.content}}</view>
+    <view class="card-content" bind:tap="routeToDetail">{{dynamic.content}}</view>
     <view class="dynamic-img">
-        <image class="img" src="{{dynamic.img}}" mode="aspectFill" bind:tap="onPreviewImage" />
+        <image class="img" src="{{dynamic.img}}" mode="aspectFill" bind:tap="onPreviewImage" data-imgsrc="{{dynamic.img}}" />
     </view>
-    <dynamic-control />
 </view>

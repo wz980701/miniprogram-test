@@ -8,7 +8,9 @@
     "pages/user/index",
     "pages/communityInfo/index",
     "pages/userCommunity/index",
-    "pages/contact/index"
+    "pages/contact/index",
+    "pages/dynamicDetail/index",
+    "pages/dynamicEdit/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

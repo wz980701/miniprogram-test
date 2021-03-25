@@ -1,3 +1,7 @@
+.space {
+    height: 100%;
+    overflow: hidden;
+}
 .tab-list {
     position: fixed;
     top: 0;
@@ -5,6 +9,7 @@
 }
 .release-btn {
     position: fixed;
+    z-index: 100;
     top: 400rpx;
     right: 30rpx;
     width: 100rpx;

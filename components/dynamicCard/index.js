@@ -22,5 +22,19 @@ Component({
     },
     data: {
         dynamic: {}
+    },
+    methods: {
+        onPreviewImage (e) {
+            const { imgsrc } = e.currentTarget.dataset;
+            wx.previewImage({
+                current: imgsrc,
+                urls: [imgsrc]
+            });
+        },
+        routeToDetail () {
+            wx.navigateTo({
+                url: `/pages/dynamicDetail/index?id=${this.data.dynamic.id}`
+            });
+        }
     }
 });
