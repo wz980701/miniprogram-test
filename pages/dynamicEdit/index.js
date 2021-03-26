@@ -1,8 +1,6 @@
 const app = getApp();
 const MAX_WORDS_NUM = 140;
 
-import { uploadFile } from '../../utils/uploadFile';
-
 Page({
     data: {
         wordsNum: 0,
@@ -69,13 +67,20 @@ Page({
             title: '发布中',
             mask: true
         });
-        uploadFile('/dynamic/userRelease', image, {
+        app.uploadFile('/dynamic/userRelease', image, {
             content
         }).then((res) => {
             wx.hideLoading();
             wx.showToast({
                 title: '发布成功'
             });
+
+            const pages = getCurrentPages();
+            const prevPage = pages[pages.length - 2];
+            prevPage.setData({
+                fromEdit: true
+            });
+
             wx.navigateBack();
         }).catch((err) => {
             wx.hideLoading();

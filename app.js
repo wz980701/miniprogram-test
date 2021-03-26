@@ -1,5 +1,6 @@
 //app.js
 import { wxRequest } from './utils/request';
+import { uploadFile } from './utils/uploadFile';
 
 App({
   onLaunch: function () {
@@ -48,5 +49,6 @@ App({
   globalData: {
     userInfo: null
   },
-  wxRequest
+  wxRequest,
+  uploadFile
 })

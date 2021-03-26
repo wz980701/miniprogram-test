@@ -11,7 +11,7 @@
                 <view class="dynamic-list" slot="inner">
                     <view class="dynamic-item" wx:for="{{dynamicList}}">
                         <dynamic-card item="{{item}}" />
-                        <dynamic-control itemId="{{item.id}}" />
+                        <dynamic-control itemId="{{item.id}}" likeNum="{{item.likeNum}}" isLike="{{item.isLike}}" />
                     </view>
                 </view>
         </coolui-scroll>

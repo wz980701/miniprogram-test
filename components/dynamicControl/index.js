@@ -2,7 +2,9 @@ const app = getApp();
 
 Component({
     properties: {
-        itemId: Number
+        itemId: Number,
+        likeNum: Number,
+        isLike: Boolean
     },
     data: {
         showDialog: false,
@@ -38,6 +40,17 @@ Component({
         onInput (e) {
             this.setData({
                 content: e.detail.value
+            });
+        },
+        onLike () {
+            app.wxRequest('/dynamic/like', {
+                data: {
+                    dynamicId: this.data.itemId
+                }
+            }).then((res) => {
+                console.log(res);
+            }).catch((err) => {
+                console.log(err);
             });
         },
         onSendComment () {

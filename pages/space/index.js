@@ -9,14 +9,21 @@ Page({
         scroll: scrollConf,
         scrollViewHeight: 0,
         headerHeight: 0,
-        dynamicList: []
+        dynamicList: [],
+        fromEdit: false
     },
     onLoad () {
         this.initScrollHeight();
         this.getDynamicList();
     },
+    onShow () {
+        console.log(this.data.fromEdit);
+        if (this.data.fromEdit) {
+            this.refresh();
+        }
+    },
     getDynamicList (type) {
-        const { size, page } = this.data;
+        const { size, page, dynamicList } = this.data;
         app.wxRequest('/dynamic/userList', {
             data: {
                 size,

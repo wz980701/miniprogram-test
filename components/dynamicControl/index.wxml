@@ -3,7 +3,7 @@
         <van-icon name="chat-o" custom-style="margin-right:12rpx;" size="20px" />
         <view>评论</view>
     </view>
-    <view class="ctrl-item" bind:tap="onLike">
+    <view class="ctrl-item" bind:tap="onLike" style="color:{{isLike ? 'rgba(250, 32, 14, 0.8)' : 'rgba(40, 47, 60, 0.8)'}}">
         <van-icon name="good-job-o" custom-style="margin-right:12rpx;" size="20px" />
         <view>{{likeNum}}</view>
     </view>
