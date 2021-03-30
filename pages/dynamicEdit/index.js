@@ -1,5 +1,6 @@
 const app = getApp();
 const MAX_WORDS_NUM = 140;
+import bus from 'iny-bus';
 
 Page({
     data: {
@@ -7,7 +8,41 @@ Page({
         footerBottom: 0,
         image: '',
         selectPhoto: true,
-        content: ''
+        content: '',
+        fromEdit: false
+    },
+    onLoad (options) {
+        options.id && this.getDynamicDetail(options.id);
+    },
+    getDynamicDetail (id) {
+        const that = this;
+        app.wxRequest('/dynamic/detail', {
+            data: {
+                dynamicId: id
+            }
+        }).then((res) => {
+            if (res) {
+                wx.downloadFile({
+                    url: res.img,
+                    success (files) {
+                      const tempFilePath = files.tempFilePath;
+                      that.setData({
+                        content: res.content,
+                        wordsNum: res.content.length,
+                        image: tempFilePath,
+                        selectPhoto: false,
+                        fromEdit: true,
+                        dynamicId: id
+                      });
+                    },
+                    fail (err) {
+                        console.log(err);
+                    }
+                })
+            }
+        }).catch((err) => {
+            console.log(err);
+        });
     },
     onInput (e) {
         let wordsNum = e.detail.value.length;
@@ -54,8 +89,8 @@ Page({
             current: e.currentTarget.dataset.imgsrc
         });
     },
-    send () {
-        const { image, content } = this.data;
+    async send () {
+        const { image, content, fromEdit, dynamicId } = this.data;
         if (content.trim() === '') {
             wx.showModal({
                 title: '请输入内容',
@@ -67,20 +102,14 @@ Page({
             title: '发布中',
             mask: true
         });
-        app.uploadFile('/dynamic/userRelease', image, {
-            content
-        }).then((res) => {
+        const formData = { content };
+        fromEdit && (formData.dynamicId = dynamicId);
+        app.uploadFile(`/dynamic/${fromEdit ? 'edit' : 'userRelease'}`, image, formData).then((res) => {
+            bus.emit('UPDATE_DYNAMIC', dynamicId);
             wx.hideLoading();
             wx.showToast({
                 title: '发布成功'
             });
-
-            const pages = getCurrentPages();
-            const prevPage = pages[pages.length - 2];
-            prevPage.setData({
-                fromEdit: true
-            });
-
             wx.navigateBack();
         }).catch((err) => {
             wx.hideLoading();

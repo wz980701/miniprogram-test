@@ -1,6 +1,7 @@
 .dynamic-card {
     padding: 20rpx;
     background-color: #fff;
+    overflow: hidden;
 }
 .card-title {
     display: flex;

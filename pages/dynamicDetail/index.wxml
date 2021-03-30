@@ -1,6 +1,13 @@
 <view class="dynamic-detail">
     <view class="header">
-        <dynamic-card item="{{dynamic}}" />
+        <view class="header-card">
+            <dynamic-card item="{{dynamic}}">
+                <view class="card-edit" wx:if="{{dynamic.isCurrentUser}}">
+                    <view bindtap="onEdit">编辑</view>
+                    <view bindtap="onDel">删除</view>
+                </view>
+            </dynamic-card>
+        </view>
         <view class="tab">
             <view class="tab-item">评论列表</view>
         </view>
@@ -10,6 +17,6 @@
         scrollViewHeight="{{scrollViewHeight}}"
     />
     <view class="dynamic-control">
-        <dynamic-control />
+        <dynamic-control itemId="{{dynamic.id}}" likeNum="{{dynamic.likeNum}}" isLike="{{dynamic.isLike}}" />
     </view>
 </view>

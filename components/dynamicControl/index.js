@@ -1,4 +1,5 @@
 const app = getApp();
+import bus from 'iny-bus';
 
 Component({
     properties: {
@@ -18,12 +19,12 @@ Component({
         }
     },
     observers: {
-        'itemId' (val) {
-            if (val) {
-                this.setData({
-                    dynamicId: val
-                });
-            }
+        'itemId, likeNum, isLike' (itemId, likeNum, isLike) {
+            this.setData({
+                dynamicId: itemId,
+                curIsLike: isLike,
+                curLikeNum: likeNum
+            });
         }
     },
     methods: {
@@ -48,8 +49,17 @@ Component({
                     dynamicId: this.data.itemId
                 }
             }).then((res) => {
-                console.log(res);
+                const { curIsLike, curLikeNum } = this.data;
+                this.setData({
+                    curIsLike: !curIsLike,
+                    curLikeNum: curIsLike ? curLikeNum - 1 : curLikeNum + 1
+                });
+                bus.emit('UPDATE_DYNAMIC');
             }).catch((err) => {
+                wx.showToast({
+                    icon: 'none',
+                    title: '点赞失败'
+                });
                 console.log(err);
             });
         },

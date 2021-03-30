@@ -1,4 +1,5 @@
 const app = getApp();
+import bus from 'iny-bus';
 
 Page({
     data: {
@@ -8,6 +9,12 @@ Page({
     onLoad (options) {
         this.getDetail(options.id);
         this.initScrollHeight();
+        this.setListener();
+    },
+    setListener () {
+        bus.on('UPDATE_DYNAMIC', (id) => {
+            +id === this.data.dynamic.id && this.getDetail(id);
+        });
     },
     getDetail (id) {
         app.wxRequest('/dynamic/detail', {
@@ -43,4 +50,36 @@ Page({
             });
         });
     },
+    onEdit () {
+        wx.navigateTo({
+            url: `/pages/dynamicEdit/index?id=${this.data.dynamic.id}`
+        });
+    },
+    onDel () {
+        const that = this;
+        wx.showModal({
+            content: '是否要删除该动态',
+            success (res) {
+                if (res.confirm) {
+                    app.wxRequest('/dynamic/delete', {
+                        data: {
+                            dynamicId: that.data.dynamic.id
+                        }
+                    }).then((data) => {
+                        bus.emit('UPDATE_DYNAMIC');
+                        wx.navigateBack();
+                    }).catch((err) => {
+                        console.log(err);
+                        wx.showToast({
+                            icon: 'none',
+                            title: '删除失败'
+                        });
+                    });
+                }
+            },
+            fail (err) {
+                console.log(err);
+            }
+        });
+    }
 });

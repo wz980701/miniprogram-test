@@ -10,4 +10,5 @@
     <view class="dynamic-img">
         <image class="img" src="{{dynamic.img}}" mode="aspectFill" bind:tap="onPreviewImage" data-imgsrc="{{dynamic.img}}" />
     </view>
+    <slot></slot>
 </view>

@@ -23,3 +23,14 @@
     left: 0;
     border-top: 2rpx solid rgba(0, 0, 0, 0.1);
 }
+
+.card-edit {
+    float: right;
+    margin-top: 20rpx;
+    width: 200rpx;
+    font-size: 29rpx;
+    line-height: 40rpx;
+    color: #00458b;
+    display: flex;
+    justify-content: space-around;
+}

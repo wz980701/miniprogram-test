@@ -1,5 +1,6 @@
 const app = getApp();
 import { INIT_PAGE, INIT_SIZE, scrollConf } from '../../config/config';
+import bus from 'iny-bus';
 
 Page({
     data: {
@@ -9,18 +10,17 @@ Page({
         scroll: scrollConf,
         scrollViewHeight: 0,
         headerHeight: 0,
-        dynamicList: [],
-        fromEdit: false
+        dynamicList: []
     },
     onLoad () {
         this.initScrollHeight();
         this.getDynamicList();
+        this.setListener();
     },
-    onShow () {
-        console.log(this.data.fromEdit);
-        if (this.data.fromEdit) {
+    setListener () {
+        bus.on('UPDATE_DYNAMIC', () => {
             this.refresh();
-        }
+        });
     },
     getDynamicList (type) {
         const { size, page, dynamicList } = this.data;

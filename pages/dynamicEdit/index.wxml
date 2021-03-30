@@ -1,5 +1,5 @@
 <view class="dynamic-edit">
-    <textarea class="content" placeholder="分享新鲜事" bindinput="onInput" maxlength="140" auto-focus="{{true}}" bindfocus="onFocus" bindblur="onBlur"></textarea>
+    <textarea value="{{content}}" class="content" placeholder="分享新鲜事" bindinput="onInput" maxlength="140" auto-focus="{{true}}" bindfocus="onFocus" bindblur="onBlur"></textarea>
     <view class="image-list">
         <view class="image-wrap">
             <image class="image" src="{{image}}" mode="aspectFill" bind:tap="onPreviewImage" data-imgsrc="{{image}}" />
