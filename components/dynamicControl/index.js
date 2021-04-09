@@ -80,6 +80,7 @@ Component({
                     icon: 'none',
                     title: '评论成功'
                 });
+                bus.emit('UPDATE_COMMENT');
             }).catch((err) => {
                 console.log(err);
             });

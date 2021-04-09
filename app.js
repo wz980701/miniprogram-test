@@ -1,4 +1,3 @@
-//app.js
 import { wxRequest } from './utils/request';
 import { uploadFile } from './utils/uploadFile';
 
@@ -10,15 +9,12 @@ App({
     wx.setStorageSync('logs', logs)
 
     // 获取用户信息
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          wx.setStorageSync('isRegist', true);
+    if (wx.getStorageSync('isRegist')) {
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
+          wx.getUserProfile({
             success: res => {
-              // 可以将 res 发送给后台解码出 unionId
               this.globalData.userInfo = res.userInfo;
+              wx.setStorageSync('userInfo', userInfo);
 
               const { avatarUrl, nickName, gender } = res.userInfo;
 
@@ -42,9 +38,7 @@ App({
               }
             }
           })
-        }
-      }
-    })
+    }
   },
   globalData: {
     userInfo: null

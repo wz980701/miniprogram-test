@@ -11,8 +11,11 @@ Page({
         this.initScrollHeight();
         this.setListener();
     },
+    onUnload () {
+        bus.remove('UPDATE_DYNAMIC', this.eventId);
+    },
     setListener () {
-        bus.on('UPDATE_DYNAMIC', (id) => {
+        this.eventId = bus.on('UPDATE_DYNAMIC', (id) => {
             +id === this.data.dynamic.id && this.getDetail(id);
         });
     },

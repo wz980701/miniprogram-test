@@ -52,27 +52,28 @@ Page({
   getUserInfo: function(e) {
     console.log(e)
     const userInfo = e.detail.userInfo;
-    app.globalData.userInfo = userInfo;
-    wx.setStorageSync('isRegist', true);
-    const { nickName, gender, avatarUrl } = userInfo;
+    console.log(userInfo);
+    // app.globalData.userInfo = userInfo;
+    // wx.setStorageSync('isRegist', true);
+    // const { nickName, gender, avatarUrl } = userInfo;
 
-    app.wxRequest(API.setUserInfo, {
-      method: "post",
-      data: {
-        nickName,
-        gender,
-        avatarUrl
-      }
-    }).then((res) => {
-      console.log(res);
-    }).catch((err) => {
-      console.log(err);
-    });
+    // app.wxRequest(API.setUserInfo, {
+    //   method: "post",
+    //   data: {
+    //     nickName,
+    //     gender,
+    //     avatarUrl
+    //   }
+    // }).then((res) => {
+    //   console.log(res);
+    // }).catch((err) => {
+    //   console.log(err);
+    // });
     
-    this.setData({
-      userInfo,
-      hasUserInfo: true
-    });
+    // this.setData({
+    //   userInfo,
+    //   hasUserInfo: true
+    // });
   },
   getTestToken() {
     userList().then((res) => {

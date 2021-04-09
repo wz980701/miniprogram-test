@@ -25,7 +25,34 @@ Page({
         })
     },
     joinCommunity () { // 加入社团
-        
+        const that = this;
+        wx.showModal({
+            content: '是否要加入该社团',
+            success (res) {
+                if (res.confirm) {
+                    app.wxRequest('/community/join', {
+                        data: {
+                            communityId: that.data.communityInfo.id
+                        }
+                    }).then((data) => {
+                        console.log(data);
+                        wx.showToast({
+                            icon: 'none',
+                            title: '已提交申请'
+                        });
+                    }).catch((err) => {
+                        console.log(err);
+                        wx.showToast({
+                            icon: 'none',
+                            title: '加入失败'
+                        });
+                    });
+                }
+            },
+            fail (err) {
+                console.log(err);
+            }
+        });
     },
     onShareAppMessage () {
         const { communityInfo } = this.data;

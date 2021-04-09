@@ -1,13 +1,14 @@
 <view class="scroll-box" style="height: {{scrollHeight}}px">
     <coolui-scroll class="community-list-component" scrollOption="{{scroll}}" bindrefresh="refresh" bindloadMore="loadMore" background="#fff">
             <view class="community-list" slot="inner">
-                <view class="community-item item" wx:for="{{communityList}}" wx:key="{{index}}" data-id="{{item.id}}" bind:tap="routeToInfo">
+                <view class="community-item item" wx:for="{{communityList}}" wx:key="{{index}}" >
                     <image class="avatarUrl" src="{{item.avatarUrl}}" mode="scaleToFill" />
                     <view class="right-side">
-                        <view class="communityName">{{item.communityName}}</view>
+                        <view class="communityName" bind:tap="routeToInfo" data-id="{{item.id}}">{{item.communityName}}</view>
                     </view>
                     <button
                         wx:if="{{curType === 'passing'}}"
+                        data-id="{{item.id}}"
                         class="item-btn" 
                         type="warn" 
                         bind:tap="cancelApply"

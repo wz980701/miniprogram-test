@@ -14,7 +14,7 @@
 .user-header .getUserInfo-btn::after {
     border: none;
 }
-.getUserInfo-btn .user-info {
+.user-info {
     width: 150rpx;
     text-align: center;
     text-align: center;

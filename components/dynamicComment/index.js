@@ -1,4 +1,5 @@
 const app = getApp();
+import bus from 'iny-bus';
 import { INIT_PAGE, INIT_SIZE, scrollConf } from '../../config/config';
 
 Component({
@@ -10,16 +11,22 @@ Component({
         size: INIT_SIZE,
         page: INIT_PAGE,
         scroll: scrollConf,
-        commentList: []
+        commentList: [],
     },
     lifetimes: {
         attached: function () {
+            this.eventId = bus.on('UPDATE_COMMENT', () => {
+                this.refresh();
+            });
             const { currentId, scrollViewHeight } = this.data;
             this.setData({
                 dynamicId: currentId,
                 curScrollViewHeight: scrollViewHeight
             });
             this.getCommentList();
+        },
+        detached: function () {
+            bus.remove('UPDATE_COMMENT', this.eventId);
         }
     },
     observers: {
@@ -71,6 +78,33 @@ Component({
                 'scroll.pagination.page': nextPage
             });
             this.getCommentList('loadMore');
+        },
+        onDel (e) {
+            const id = e.currentTarget.dataset.id;
+            const that = this;
+            wx.showModal({
+                content: '是否要删除该评论',
+                success (res) {
+                    if (res.confirm) {
+                        app.wxRequest('/dynamic/removeComment', {
+                            data: {
+                                id
+                            }
+                        }).then((data) => {
+                            that.refresh();
+                        }).catch((err) => {
+                            console.log(err);
+                            wx.showToast({
+                                icon: 'none',
+                                title: '删除失败'
+                            });
+                        });
+                    }
+                },
+                fail (err) {
+                    console.log(err);
+                }
+            });
         }
     }
 });

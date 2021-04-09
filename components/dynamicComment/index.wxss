@@ -7,6 +7,10 @@
     margin-bottom: 50rpx;
 }
 
+.comment {
+    position: relative;
+}
+
 .comment-title {
     display: flex;
     align-items: center;
@@ -33,4 +37,12 @@
 .comment-time {
     font-size: 24rpx;
     color: #939393;
+}
+
+.comment-delete {
+    position: absolute;
+    right: 50rpx;
+    bottom: 20rpx;
+    font-size: 29rpx;
+    color: #00458b;
 }

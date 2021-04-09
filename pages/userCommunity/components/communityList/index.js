@@ -74,6 +74,44 @@ Component({
                 'scroll.pagination.page': nextPage
             });
             this.getCommunityList('loadMore');
-        }
+        },
+        cancelApply (e) {
+            const { id } = e.currentTarget.dataset;
+            const that = this;
+            wx.showModal({
+                content: '是否要取消申请',
+                success (res) {
+                    if (res.confirm) {
+                        app.wxRequest('/community/cancelApply', {
+                            data: {
+                                id
+                            }
+                        }).then((res) => {
+                            console.log(res);
+                            wx.showToast({
+                                icon: 'none',
+                                title: '已取消申请'
+                            });
+                            that.refresh();
+                        }).catch((err) => {
+                            console.log(err);
+                            wx.showToast({
+                                icon: 'none',
+                                title: '取消申请失败'
+                            });
+                        });
+                    }
+                },
+                fail (err) {
+                    console.log(err);
+                }
+            });
+        },
+        routeToInfo (e) {
+            const { id } = e.currentTarget.dataset;
+            wx.navigateTo({
+                url: `/pages/communityInfo/index?id=${id}`
+            });
+        },
     }
 });

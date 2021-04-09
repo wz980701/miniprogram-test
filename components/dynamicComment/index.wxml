@@ -12,6 +12,7 @@
                         </view>
                         <view class="comment-content">{{item.content}}</view>
                         <view class="comment-time">{{item.updateTime}}</view>
+                        <view class="comment-delete" wx:if="{{item.isCurrentUser}}" bind:tap="onDel" data-id="{{item.id}}">删除</view>
                     </view>
                 </view>
             </view>
