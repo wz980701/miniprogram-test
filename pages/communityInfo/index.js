@@ -2,15 +2,36 @@ const app = getApp();
 
 Page({
     data: {
-        communityInfo: {}
+        communityInfo: {},
+        isJoin: false
     },
-    onLoad (options) {
-        this.getCommuntiyInfo(options);
+    onLoad(options) {
+        this.setData({
+            id: options.id
+        });
+        this.getCommuntiyInfo();
+        this.getCurrentUserLevel();
     },
-    getCommuntiyInfo (options) {
+    getCurrentUserLevel() {
+        app.wxRequest('/community/getCurrentUserLevel', {
+            data: {
+                communityId: this.data.id
+            }
+        }).then((res) => {
+            const { level } = res;
+            if (level >= 1) {
+                this.setData({
+                    isJoin: true
+                });
+            }
+        }).catch((err) => {
+            console.log(err);
+        });
+    },
+    getCommuntiyInfo () {
         app.wxRequest('/community/getInfo', {
             data: {
-                communityId: options.id
+                communityId: this.data.id
             }
         }).then((res) => {
             console.log(res);
@@ -61,5 +82,10 @@ Page({
             path: `/pages/communityInfo/index?id=${communityInfo.id}`,
             imgPathUrl: 'https://graduation-jeremy.oss-cn-beijing.aliyuncs.com/default/2d5eda9d2b9691d1318d1920715d4a11.jpg'
         }
+    },
+    routeToDetail() {
+        wx.navigateTo({
+            url: `/pages/communityDetail/index?level=${this.data.level}&id=${this.data.id}`
+        });
     }
 });

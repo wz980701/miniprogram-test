@@ -1,0 +1,4 @@
+<view class="community-detail">
+    <image class="background-img" src="{{communityInfo.backgroundUrl}}" mode="widthFix" />
+    <view class="card"></view>
+</view>

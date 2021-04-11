@@ -10,7 +10,8 @@
     "pages/userCommunity/index",
     "pages/contact/index",
     "pages/dynamicDetail/index",
-    "pages/dynamicEdit/index"
+    "pages/dynamicEdit/index",
+    "pages/communityDetail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -24,8 +25,7 @@
     "selectedColor": "#C70039",
     "borderStyle": "black",
     "backgroundColor": "#fff",
-    "list": [
-      {
+    "list": [{
         "pagePath": "pages/index/index",
         "iconPath": "images/nav/home-off.png",
         "selectedIconPath": "images/nav/home-on.png",
