@@ -2,7 +2,8 @@ const app = getApp();
 
 Page({
     data: {
-        communityInfo: {}
+        communityInfo: {},
+        active: 'userList'
     },
     onLoad(options) {
         const { level, id } = options;
@@ -11,6 +12,7 @@ Page({
             id
         });
         this.getCommuntiyInfo();
+        this.setUserIdentity();
     },
     getCommuntiyInfo () {
         app.wxRequest('/community/getInfo', {
@@ -29,4 +31,23 @@ Page({
             });
         })
     },
+    setUserIdentity () {
+        let ident;
+        console.log('level>>', this.data.level);
+        switch (this.data.level) {
+            case '1': 
+                ident = '成员';
+                break;
+            case '10': 
+                ident = '管理员';
+                break;
+            case '100':
+                ident = '社长';
+                break;
+        }
+        console.log('ident>>', ident);
+        this.setData({
+            userIdent: ident
+        });
+    }
 });

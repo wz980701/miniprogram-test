@@ -1,0 +1,10 @@
+<view class="dynamic-list-container">
+    <coolui-scroll class="dynamic-list-component" scrollOption="{{scroll}}" bindrefresh="communityRefresh" bindloadMore="communityLoadMore" background="#fff">
+            <view class="dynamic-list" slot="inner">
+                <view class="dynamic-item" wx:for="{{communityDynamicList}}">
+                    <dynamic-card item="{{item}}" isCommunity="true" />
+                    <dynamic-control itemId="{{item.id}}" likeNum="{{item.likeNum}}" isLike="{{item.isLike}}" />
+                </view>
+            </view>
+    </coolui-scroll>
+</view>

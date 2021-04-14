@@ -1,0 +1,15 @@
+<view class="scroll-box">
+    <coolui-scroll class="list-component" scrollOption="{{scroll}}" bindrefresh="refresh" bindloadMore="loadMore" background="#fff">
+            <view class="list" slot="inner">
+                <view class="item" wx:for="{{announceList}}" wx:key="{{index}}" data-id="{{item.id}}">
+                    <view class="head">
+                        <image class="avatarUrl" src="{{item.userInfo.avatarUrl}}" mode="scaleToFill" />
+                        <view class="userName">{{item.userInfo.nickName}}</view>
+                    </view>
+                    <view class="content">{{item.content}}</view>
+                    <view class="time">{{item.createTime}}</view>
+                    <view class="delete" wx:if="{{item.isCurrentUser}}" bind:tap="delete" data-id="{{item.id}}">删除</view>
+                </view>
+            </view>
+    </coolui-scroll>
+</view>

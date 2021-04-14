@@ -2,7 +2,11 @@ const app = getApp();
 
 Component({
     properties: {
-        item: Object
+        item: Object,
+        isCommunity: {
+            default: false,
+            type: Boolean
+        }
     },
     observers: {
         'item' (val) {

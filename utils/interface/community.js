@@ -35,8 +35,8 @@ export const addAnnouce = async () => {
     return await wxRequest('/community/addAnnounce', {
         method: 'post',
         data: {
-            content: '公告2',
-            communityId: 1
+            content: '公告4',
+            communityId: 11
         }
     });
 }

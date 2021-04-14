@@ -1,0 +1,8 @@
+{
+    "component": true,
+    "usingComponents": {
+        "coolui-scroll": "coolui-scroller/index",
+        "dynamic-card": "/components/dynamicCard/index",
+        "dynamic-control": "/components/dynamicControl/index"
+    }
+}

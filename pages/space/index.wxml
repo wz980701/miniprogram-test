@@ -1,19 +1,31 @@
 <view class="space">
     <van-tabs active="{{active}}" class="tab-list" bind:change="onTabChange">
-        <van-tab title="社团动态" name="community" />
-        <van-tab title="用户动态" name="user" />
+        <van-tab title="社团动态" name="community">
+            <view class="dynamic-list-container" style="height:{{scrollViewHeight}}px;">
+                <coolui-scroll class="dynamic-list-component" scrollOption="{{scroll}}" bindrefresh="communityRefresh" bindloadMore="communityLoadMore" background="#fff">
+                        <view class="dynamic-list" slot="inner">
+                            <view class="dynamic-item" wx:for="{{communityDynamicList}}">
+                                <dynamic-card item="{{item}}" isCommunity="{{isCommunity}}" />
+                                <dynamic-control itemId="{{item.id}}" likeNum="{{item.likeNum}}" isLike="{{item.isLike}}" />
+                            </view>
+                        </view>
+                </coolui-scroll>
+            </view>
+        </van-tab>
+        <van-tab title="用户动态" name="user">
+            <view class="dynamic-list-container" style="height:{{scrollViewHeight}}px;">
+                <coolui-scroll class="dynamic-list-component" scrollOption="{{scroll}}" bindrefresh="refresh" bindloadMore="loadMore" background="#fff">
+                        <view class="dynamic-list" slot="inner">
+                            <view class="dynamic-item" wx:for="{{dynamicList}}">
+                                <dynamic-card item="{{item}}" />
+                                <dynamic-control itemId="{{item.id}}" likeNum="{{item.likeNum}}" isLike="{{item.isLike}}" />
+                            </view>
+                        </view>
+                </coolui-scroll>
+            </view>
+        </van-tab>
     </van-tabs>
     <view class="release-btn" wx:if="{{active === 'user'}}" bindtap="routeToEdit">
         <van-icon name="edit" color="#fff" />
-    </view>
-    <view class="dynamic-list-container" style="height:{{scrollViewHeight}}px;margin-top:{{headerHeight}}px;">
-        <coolui-scroll class="dynamic-list-component" scrollOption="{{scroll}}" bindrefresh="refresh" bindloadMore="loadMore" background="#fff">
-                <view class="dynamic-list" slot="inner">
-                    <view class="dynamic-item" wx:for="{{dynamicList}}">
-                        <dynamic-card item="{{item}}" />
-                        <dynamic-control itemId="{{item.id}}" likeNum="{{item.likeNum}}" isLike="{{item.isLike}}" />
-                    </view>
-                </view>
-        </coolui-scroll>
     </view>
 </view>

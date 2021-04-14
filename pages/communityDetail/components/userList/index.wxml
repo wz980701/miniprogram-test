@@ -1,0 +1,11 @@
+<view class="scroll-box">
+    <coolui-scroll class="list-component" scrollOption="{{scroll}}" bindrefresh="refresh" bindloadMore="loadMore" background="#fff">
+            <view class="list" slot="inner">
+                <view class="item item" wx:for="{{userList}}" wx:key="{{index}}" data-id="{{item.id}}">
+                    <image class="avatarUrl" src="{{item.avatarUrl}}" mode="scaleToFill" />
+                    <view class="communityName">{{item.nickName}}</view>
+                    <image class="gender-icon" src="{{item.gender === 1 ? 'https://graduation-jeremy.oss-cn-beijing.aliyuncs.com/default/性别男.png' : 'https://graduation-jeremy.oss-cn-beijing.aliyuncs.com/default/CRM_icon_女性.png'}}" mode="widthFix" />
+                </view>
+            </view>
+    </coolui-scroll>
+</view>

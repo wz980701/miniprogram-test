@@ -1,8 +1,8 @@
 <view class="dynamic-card">
     <view class="card-title">
-        <image class="card-portrait" src="{{dynamic.userInfo.avatarUrl}}" />
+        <image class="card-portrait" src="{{isCommunity ? dynamic.communityInfo.avatarUrl : dynamic.userInfo.avatarUrl}}" />
         <view class="card-box">
-            <view class="card-nickName">{{dynamic.userInfo.nickName}}</view>
+            <view class="card-nickName">{{isCommunity ? dynamic.communityInfo.communityName : dynamic.userInfo.nickName}}</view>
             <view class="card-time">{{dynamic.updateTime}}</view>
         </view>
     </view>

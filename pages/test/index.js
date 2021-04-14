@@ -2,7 +2,7 @@
 //获取应用实例
 const app = getApp()
 
-import {  getCommunityInfo, createCommunity } from '../../utils/interface/community';
+import {  addAnnouce, createCommunity } from '../../utils/interface/community';
 import { userList } from '../../utils/interface/dynamic';
 
 import API from '../../utils/api';
@@ -83,7 +83,7 @@ Page({
     });
   },
   handleClick() {
-    createCommunity().then((res) => {
+    addAnnouce().then((res) => {
       console.log(res);
     }).catch((err) => {
       console.log(err);

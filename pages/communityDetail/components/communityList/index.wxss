@@ -1,0 +1,7 @@
+.dynamic-list-container {
+    height: 400rpx;
+}
+.dynamic-item {
+    margin-bottom: 20rpx;
+    box-sizing: border-box;
+}

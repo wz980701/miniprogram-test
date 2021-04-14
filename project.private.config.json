@@ -13,7 +13,7 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/test/index",
+          "name": "pages/communityDetail/index",
           "pathName": "pages/test/index",
           "query": "",
           "scene": null

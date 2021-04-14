@@ -5,3 +5,63 @@
     left: 0;
     z-index: -1;
 }
+.card {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 250rpx;
+    box-sizing: border-box;
+    padding: 20rpx;
+    border-radius: 10rpx;
+    box-shadow: 0rpx 3rpx 8rpx 0rpx rgba(0, 0, 0, 0.5);
+    position: relative;
+    background-color: #fff;
+}
+.community-tag {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+.community-tag .avatar-img {
+    display: block;
+    width: 150rpx;
+    height: 150rpx;
+    border-radius: 50%;
+    border: 1px solid #f2f3f4;
+    overflow: hidden;
+}
+.community-tag .community-name {
+    padding-left: 30rpx;
+    font-size: 35rpx;
+}
+.user-identity {
+    position: absolute;
+    bottom: 20rpx;
+    right: 30rpx;
+    font-size: 30rpx;
+    color: #ccc;
+}
+.annouce {
+    margin-top: 20rpx;
+    width: 100%;
+}
+.annouce .tag {
+    font-size: 31rpx;
+    line-height: 50rpx;
+    color: #ccc;
+}
+.annouce .content {
+    margin-top: 20rpx;
+    font-size: 30rpx;
+    line-height: 60rpx;
+    color: #918E8D;
+}
+.annouce .time {
+    text-align: right;
+    font-size: 28rpx;
+    color: #ccc;
+    margin: 20rpx 0;
+}
+.tab-list {
+    margin-top: 40rpx;
+}

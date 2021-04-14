@@ -21,7 +21,8 @@ Page({
             const { level } = res;
             if (level >= 1) {
                 this.setData({
-                    isJoin: true
+                    isJoin: true,
+                    level
                 });
             }
         }).catch((err) => {
