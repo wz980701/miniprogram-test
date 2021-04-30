@@ -15,15 +15,15 @@
             <view class="user-community-list card-list">
                 <view class="item item-first" data-id="joined" bind:tap="routeToUserCommunity">
                     <van-icon name="friends" color="#ccffbd" size="32px" />
-                    已加入 
+                    <view>已加入</view>
                 </view>
                 <view class="item item-second" data-id="passing" bind:tap="routeToUserCommunity">
                     <van-icon name="todo-list" color="#e84545" size="32px" />
-                    待审核
+                    <view>待审核</view>
                 </view>
                 <view class="item item-last" data-id="created" bind:tap="routeToUserCommunity">
                     <van-icon name="add" color="#fed049" size="32px" />
-                    已创建
+                    <view>已创建</view>
                 </view>
             </view>
         </view>
@@ -32,11 +32,11 @@
             <view class="user-service-list card-list">
                 <view class="item item-first">
                     <van-icon name="manager" color="#007580" size="32px" bind:tap="routeToUserInfo" />
-                    我的信息
+                    <view>我的信息</view>
                 </view>
                 <view class="item item-second">
                     <van-icon name="chat" color="#f0c929" size="32px" bind:tap="routeToContact"></van-icon>
-                    意见反馈
+                    <view>意见反馈</view>
                 </view>
             </view>
         </view>      

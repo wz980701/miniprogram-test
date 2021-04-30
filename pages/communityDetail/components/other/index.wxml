@@ -1,3 +1,14 @@
-<view>
-    
+<view class="container">
+    <view class="item">
+        <van-icon name="friends" color="#ccffbd" size="32px" />
+        <view>查看相册</view>
+    </view>
+    <view class="item">
+        <van-icon name="todo-list" color="#e84545" size="32px" />
+        <view>上传照片</view>
+    </view>
+    <view class="item">
+        <van-icon name="add" color="#fed049" size="32px" />
+        <view>添加管理员</view>
+    </view>
 </view>

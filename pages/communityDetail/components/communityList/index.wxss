@@ -1,5 +1,5 @@
 .dynamic-list-container {
-    height: 400rpx;
+    height: 600rpx;
 }
 .dynamic-item {
     margin-bottom: 20rpx;

@@ -6,7 +6,7 @@
             shape="round"
             placeholder="请输入关键字进行社团搜索"
             bind:change="onChange"
-            bind:search="getSearchList"
+            bind:search="onSearch"
             bind:clear="onClear"
             bind:blur="onBlur"
         ></van-search>

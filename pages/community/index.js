@@ -56,6 +56,13 @@ Page({
             console.log(err);
         });
     },
+    onSearch () {
+        this.setData({
+            size: INIT_SIZE,
+            page: INIT_PAGE
+        });
+        this.getSearchList();
+    },
     onChange(e) {
         this.setData({
           searchContent: e.detail,
