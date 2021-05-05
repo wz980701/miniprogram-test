@@ -2,7 +2,7 @@
 //获取应用实例
 const app = getApp()
 
-import {  addAnnouce, createCommunity } from '../../utils/interface/community';
+import {  addAnnouce, getSearchUserList } from '../../utils/interface/community';
 import { userList } from '../../utils/interface/dynamic';
 
 import API from '../../utils/api';
@@ -76,7 +76,7 @@ Page({
     // });
   },
   getTestToken() {
-    userList().then((res) => {
+    getSearchUserList().then((res) => {
       console.log(res);
     }).catch((err) => {
       console.log(err);
@@ -91,12 +91,12 @@ Page({
   },
   onUpload() {
     wx.chooseImage({
-      count: 1,
+      count: 3,
       success: function (res) {
         const tempFilePaths = res.tempFilePaths;
         for (let item of tempFilePaths) {
           wx.uploadFile({
-            url: 'http://localhost:3000/api/dynamic/userRelease',
+            url: 'http://localhost:3000/api/file/uploadImgs',
             filePath: item,
             name: 'file',
             header: {
@@ -104,7 +104,7 @@ Page({
               'Authorization': `Bearer ${wx.getStorageSync('token') || ''}`
             },
             formData: {
-              content: 'xixi2'
+              communityId: 1
             },
             success: function (res) {
               console.log(res);

@@ -2,8 +2,8 @@
     <view class="user-header">
         <view class="user-info" wx:if="{{!hasUserInfo}}" bindtap="getUserInfo">
             <image class="avatar" src="https://graduation-jeremy.oss-cn-beijing.aliyuncs.com/default/ce10818cef2696f7445bd0673c51d1ba.png" mode="scaleToFill" lazy-load="false" />
-            登录/注册     
-        </view> 
+            登录/注册
+        </view>
         <view class="user-info" wx:else>
             <image class="avatar" src="{{userInfo.avatarUrl}}" mode="scaleToFill" lazy-load="false" />
             {{userInfo.nickName}}
@@ -35,11 +35,14 @@
                     <view>我的信息</view>
                 </view>
                 <view class="item item-second">
+                    <van-icon name="friends" color="#51c4d3" size="32px" bind:tap="routeToCreateCommunity"></van-icon>
+                    <view>创建社团</view>
+                </view>
+                <view class="item item-last">
                     <van-icon name="chat" color="#f0c929" size="32px" bind:tap="routeToContact"></van-icon>
                     <view>意见反馈</view>
                 </view>
             </view>
-        </view>      
+        </view>
     </view>
-            
 </view>

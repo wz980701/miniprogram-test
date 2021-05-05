@@ -1,14 +1,34 @@
 <view class="container">
     <view class="item">
-        <van-icon name="friends" color="#ccffbd" size="32px" />
+        <van-icon name="photo" color="#ccffbd" size="32px" bindtap="checkPhoto" />
         <view>查看相册</view>
     </view>
     <view class="item">
-        <van-icon name="todo-list" color="#e84545" size="32px" />
+        <van-icon name="todo-list" color="#e84545" size="32px" bindtap="uploadPhoto" />
         <view>上传照片</view>
     </view>
-    <view class="item">
+    <view class="item" wx:if="{{level === 100}}" bindtap="addManager">
         <van-icon name="add" color="#fed049" size="32px" />
         <view>添加管理员</view>
+    </view>
+    <view class="item" wx:if="{{level >= 10}}" bindtap="checkApplyList">
+        <van-icon name="friends" color="#3d84b8" size="32px" />
+        <view>查看申请列表</view>
+    </view>
+    <view class="item" wx:if="{{level === 100}}" bindtap="modifyCommunityInfo">
+        <van-icon name="wap-home" color="#e7d4b5" size="32px" />
+        <view>修改社团信息</view>
+    </view>
+    <view class="item" wx:if="{{level >= 10}}" bindtap="sendDynamic">
+        <van-icon name="chat" color="#00adb5" size="32px" />
+        <view>发送社团动态</view>
+    </view>
+    <view class="item" wx:if="{{level >= 10}}" bindtap="addAnnounce">
+        <van-icon name="more" color="#f8a488" size="32px" />
+        <view>发布公告</view>
+    </view>
+    <view class="item" wx:if="{{level <= 10}}" bindtap="exitCommunity">
+        <van-icon name="clear" color="#150e56" size="32px" />
+        <view>退出社团</view>
     </view>
 </view>

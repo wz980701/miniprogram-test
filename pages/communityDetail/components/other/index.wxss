@@ -1,13 +1,13 @@
 .container {
-    height: 600rpx;
     box-sizing: border-box;
     padding: 30rpx;
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
 }
 .item {
-    width: 100rpx;
+    width: 25%;
     text-align: center;
     font-size: 25rpx;
     line-height: 40rpx;
+    margin-bottom: 30rpx;
 }

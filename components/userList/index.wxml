@@ -1,0 +1,17 @@
+<view class="scroll-box" style="height:{{scrollHeight}}px">
+    <coolui-scroll class="list-component" scrollOption="{{scroll}}" bindrefresh="refresh" bindloadMore="loadMore" background="#fff">
+        <view class="list" slot="inner">
+            <view class="item item" wx:for="{{userList}}" wx:key="{{index}}" data-id="{{item.id}}">
+                <image class="avatarUrl" src="{{item.avatarUrl}}" mode="scaleToFill" />
+                <view class="communityName">{{item.nickName}}</view>
+                <image class="gender-icon" src="{{item.gender === 1 ? 'https://graduation-jeremy.oss-cn-beijing.aliyuncs.com/default/性别男.png' : 'https://graduation-jeremy.oss-cn-beijing.aliyuncs.com/default/CRM_icon_女性.png'}}" mode="widthFix" />
+                <view class="right-side">
+                    <van-icon data-id="{{item.id}}" wx:if="{{listType === 'getSearchUserList'}}" name="plus" color="red" bind:tap="addManager"></van-icon>
+                    <button data-id="{{item.id}}" type="primary" size="mini" wx:if="{{listType === 'getApplyList'}}" bind:tap="getApplyList">
+                        通过
+                    </button>
+                </view>
+            </view>
+        </view>
+    </coolui-scroll>
+</view>

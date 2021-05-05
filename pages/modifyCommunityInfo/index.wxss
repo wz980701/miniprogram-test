@@ -1,0 +1,36 @@
+.submit-btn {
+    background: #C70039;
+    color: #fff;
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+    margin-top: 30rpx;
+    margin-bottom: 60rpx;
+    font-size: 30rpx;
+}
+.img-item {
+    box-sizing: border-box;
+    padding: 20rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1rpx solid #f2f3f4;
+}
+.img-item .left-side {
+    display: flex;
+    align-items: center;
+    padding-left: 20rpx;
+}
+.left-side .label {
+    width: 150rpx;
+}
+.img-item .img {
+    display: block;
+    width: 160rpx;
+    height: 160rpx;
+    border-radius: 10rpx;
+    overflow: hidden;
+}
+.img-item .right-side {
+    margin-right: 10rpx;
+}

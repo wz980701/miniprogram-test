@@ -1,0 +1,5 @@
+<view class="container">
+    <block wx:for="{{imgList}}" wx:key="{{index}}">
+        <image src="{{item}}" class="item" mode="scaleToFill" data-src="{{item}}" lazy-load="{{true}}" bindtap="onPreviewImg" />
+    </block>
+</view>

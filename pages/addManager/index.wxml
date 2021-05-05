@@ -1,0 +1,4 @@
+<view class="container">
+    <van-search model:value="{{ searchText }}" placeholder="请输入用户名" bind:search="onSearch" clearable bind:clear="onClear" />
+    <user-list id="userList" communityId="{{communityId}}" listType="getSearchUserList" bind:addManager="addManager" scrollHeight="{{scrollHeight}}" />
+</view>

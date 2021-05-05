@@ -3,24 +3,24 @@
         <van-tab title="社团动态" name="community">
             <view class="dynamic-list-container" style="height:{{scrollViewHeight}}px;">
                 <coolui-scroll class="dynamic-list-component" scrollOption="{{scroll}}" bindrefresh="communityRefresh" bindloadMore="communityLoadMore" background="#fff">
-                        <view class="dynamic-list" slot="inner">
-                            <view class="dynamic-item" wx:for="{{communityDynamicList}}">
-                                <dynamic-card item="{{item}}" isCommunity="{{isCommunity}}" />
-                                <dynamic-control itemId="{{item.id}}" likeNum="{{item.likeNum}}" isLike="{{item.isLike}}" />
-                            </view>
+                    <view class="dynamic-list" slot="inner">
+                        <view class="dynamic-item" wx:for="{{communityDynamicList}}">
+                            <dynamic-card item="{{item}}" isCommunity="{{isCommunity}}" />
+                            <dynamic-control itemId="{{item.id}}" likeNum="{{item.likeNum}}" isLike="{{item.isLike}}" browseTimes="{{item.browseTimes}}" />
                         </view>
+                    </view>
                 </coolui-scroll>
             </view>
         </van-tab>
         <van-tab title="用户动态" name="user">
             <view class="dynamic-list-container" style="height:{{scrollViewHeight}}px;">
                 <coolui-scroll class="dynamic-list-component" scrollOption="{{scroll}}" bindrefresh="refresh" bindloadMore="loadMore" background="#fff">
-                        <view class="dynamic-list" slot="inner">
-                            <view class="dynamic-item" wx:for="{{dynamicList}}">
-                                <dynamic-card item="{{item}}" />
-                                <dynamic-control itemId="{{item.id}}" likeNum="{{item.likeNum}}" isLike="{{item.isLike}}" />
-                            </view>
+                    <view class="dynamic-list" slot="inner">
+                        <view class="dynamic-item" wx:for="{{dynamicList}}">
+                            <dynamic-card item="{{item}}" />
+                            <dynamic-control itemId="{{item.id}}" likeNum="{{item.likeNum}}" isLike="{{item.isLike}}" browseTimes="{{item.browseTimes}}" />
                         </view>
+                    </view>
                 </coolui-scroll>
             </view>
         </van-tab>

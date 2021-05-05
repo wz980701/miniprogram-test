@@ -1,0 +1,1 @@
+<user-list id="userList" communityId="{{communityId}}" listType="getApplyList" bind:getApplyList="sendApplyRequest" scrollHeight="{{scrollHeight}}" />

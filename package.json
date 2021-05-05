@@ -2,6 +2,7 @@
   "dependencies": {
     "@vant/weapp": "^1.6.8",
     "coolui-scroller": "^2.0.2",
-    "iny-bus": "^2.0.0"
+    "iny-bus": "^2.0.0",
+    "weui-miniprogram": "1.0.8"
   }
 }

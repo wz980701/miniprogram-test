@@ -13,9 +13,15 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/uploadImg/index",
+          "pathName": "pages/uploadImg/index",
+          "query": "communityId=1",
+          "scene": null
+        },
+        {
           "name": "pages/communityDetail/index",
-          "pathName": "pages/test/index",
-          "query": "",
+          "pathName": "pages/communityDetail/index",
+          "query": "level=100&id=1",
           "scene": null
         }
       ]

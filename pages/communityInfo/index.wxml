@@ -17,9 +17,10 @@
             <van-icon name="share-o" size="18px" color="#ccc" custom-style="display:block;margin:0 auto;" />
             <view class="share-text">分享</view>
         </button>
-        <button type="primary" class="footer-btn" bindtap="joinCommunity" wx:if="{{!isJoin}}">
-            立即加入社团
+        <button type="primary" disabled="{{true}}" wx:if="{{level === 0}}">已提交申请</button>
+        <button type="primary" class="footer-btn" bindtap="routeToDetail" wx:elif="{{level >= 1}}">
+            进入社团
         </button>
-        <button type="primary" class="footer-btn" bindtap="routeToDetail" wx:else>进入社团</button>
+        <button type="primary" class="footer-btn" bindtap="joinCommunity" wx:else>立即加入社团</button>
     </view>
 </view>

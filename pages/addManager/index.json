@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "添加管理员",
+    "usingComponents": {
+        "van-search": "@vant/weapp/search/index",
+        "user-list": "/components/userList/index"
+    }
+}

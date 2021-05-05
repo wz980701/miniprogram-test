@@ -9,10 +9,15 @@ Page({
         image: '',
         selectPhoto: true,
         content: '',
-        fromEdit: false
+        fromEdit: false,
+        releaseType: 'userRelease'
     },
     onLoad (options) {
         options.id && this.getDynamicDetail(options.id);
+        options.communityId && this.setData({
+            communityId: options.communityId,
+            releaseType: 'communityRelease'
+        });
     },
     getDynamicDetail (id) {
         const that = this;
@@ -90,7 +95,7 @@ Page({
         });
     },
     async send () {
-        const { image, content, fromEdit, dynamicId } = this.data;
+        const { image, content, fromEdit, dynamicId, communityId, releaseType } = this.data;
         if (content.trim() === '') {
             wx.showModal({
                 title: '请输入内容',
@@ -104,7 +109,8 @@ Page({
         });
         const formData = { content };
         fromEdit && (formData.dynamicId = dynamicId);
-        app.uploadFile(`/dynamic/${fromEdit ? 'edit' : 'userRelease'}`, image, formData).then((res) => {
+        communityId && (formData.communityId = communityId);
+        app.uploadFile(`/dynamic/${fromEdit ? 'edit' : releaseType}`, image, formData).then((res) => {
             bus.emit('UPDATE_DYNAMIC', dynamicId);
             wx.hideLoading();
             wx.showToast({

@@ -10,6 +10,7 @@ Page({
         this.getDetail(options.id);
         this.initScrollHeight();
         this.setListener();
+        this.updateBrowseTimes(options.id);
     },
     onUnload () {
         bus.remove('UPDATE_DYNAMIC', this.eventId);
@@ -17,6 +18,13 @@ Page({
     setListener () {
         this.eventId = bus.on('UPDATE_DYNAMIC', (id) => {
             +id === this.data.dynamic.id && this.getDetail(id);
+        });
+    },
+    updateBrowseTimes(id) {
+        app.wxRequest('/dynamic/updateBrowseTimes', {
+            data: {
+                id
+            }
         });
     },
     getDetail (id) {

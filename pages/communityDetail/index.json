@@ -5,6 +5,7 @@
         "van-tabs": "@vant/weapp/tabs/index",
         "user-list": "./components/userList/index",
         "announce-list": "./components/announceList/index",
-        "community-list": "./components/communityList/index"
+        "community-list": "./components/communityList/index",
+        "other": "./components/other/index"
     }
 }

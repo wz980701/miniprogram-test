@@ -1,0 +1,7 @@
+{
+    "component": true,
+    "usingComponents": {
+        "coolui-scroll": "coolui-scroller/index",
+        "van-icon": "@vant/weapp/icon/index"
+    }
+}

@@ -1,0 +1,11 @@
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+.item {
+    width: 50%;
+    height: 300rpx;
+    display: block;
+}

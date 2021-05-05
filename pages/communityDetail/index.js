@@ -14,6 +14,9 @@ Page({
         this.getCommuntiyInfo();
         this.setUserIdentity();
     },
+    onShow() {
+        this.getCommuntiyInfo();
+    },
     getCommuntiyInfo () {
         app.wxRequest('/community/getInfo', {
             data: {

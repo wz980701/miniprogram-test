@@ -19,6 +19,7 @@ Page({
         wx.getUserProfile({
             desc: '获取个人信息',
             success: (res) => {
+                console.log(res);
                 const userInfo = res.userInfo;
                 app.globalData.userInfo = userInfo;
                 wx.setStorageSync('isRegist', true);
@@ -59,6 +60,11 @@ Page({
     routeToContact () {
         wx.navigateTo({
             url: '/pages/contact/index'
+        });
+    },
+    routeToCreateCommunity() {
+        wx.navigateTo({
+            url: '/pages/modifyCommunityInfo/index?type=create'
         });
     }
 });

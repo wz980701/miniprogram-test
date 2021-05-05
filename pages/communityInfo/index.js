@@ -2,8 +2,7 @@ const app = getApp();
 
 Page({
     data: {
-        communityInfo: {},
-        isJoin: false
+        communityInfo: {}
     },
     onLoad(options) {
         this.setData({
@@ -18,11 +17,10 @@ Page({
                 communityId: this.data.id
             }
         }).then((res) => {
-            const { level } = res;
-            if (level >= 1) {
+            if (res.level || res.level === 0) {
+                console.log(res.level);
                 this.setData({
-                    isJoin: true,
-                    level
+                    level: res.level
                 });
             }
         }).catch((err) => {
@@ -62,6 +60,7 @@ Page({
                             icon: 'none',
                             title: '已提交申请'
                         });
+                        that.getCurrentUserLevel();
                     }).catch((err) => {
                         console.log(err);
                         wx.showToast({

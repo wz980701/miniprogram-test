@@ -6,10 +6,12 @@
             <view class="community-name">{{communityInfo.communityName}}</view>
             <view class="user-identity">当前身份：{{userIdent}}</view>
         </view>
-        <view class="annouce">
+        <view class="annouce" wx:if="{{communityInfo.announce.content}}">
             <view class="tag">最新公告</view>
             <view class="content">{{communityInfo.announce.content}}</view>
-            <view class="time">{{communityInfo.announce.userInfo.nickName}} 发布于 {{communityInfo.announce.createTime}}</view>
+            <view class="time">
+                {{communityInfo.announce.userInfo.nickName}} 发布于 {{communityInfo.announce.createTime}}
+            </view>
         </view>
     </view>
     <van-tabs active="{{active}}" bind:change="onTabChange" custom-class="tab-list">
@@ -22,6 +24,8 @@
         <van-tab title="社团动态" name="communityList">
             <community-list communityId="{{id}}" />
         </van-tab>
-        <van-tab title="其它" name="other">其它</van-tab>
+        <van-tab title="其它" name="other">
+            <other communityId="{{id}}" level="{{level}}" />
+        </van-tab>
     </van-tabs>
 </view>

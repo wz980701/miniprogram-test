@@ -66,7 +66,6 @@ Component({
                             console.log(res);
                             that.refresh();
                         }).catch((err) => {
-                            console.log(err);
                             wx.showToast({
                                 icon: 'none',
                                 title: '删除失败'

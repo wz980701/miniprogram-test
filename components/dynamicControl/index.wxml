@@ -3,25 +3,16 @@
         <van-icon name="chat-o" custom-style="margin-right:12rpx;" size="20px" />
         <view>评论</view>
     </view>
+    <view class="ctrl-item">
+        <van-icon name="eye-o" custom-style="margin-right:12rpx;" size="20px" />
+        <view>{{curBrowseTimes}}</view>
+    </view>
     <view class="ctrl-item" bind:tap="onLike" style="color:{{curIsLike ? 'rgba(250, 32, 14, 0.8)' : 'rgba(40, 47, 60, 0.8)'}}">
         <van-icon name="good-job-o" custom-style="margin-right:12rpx;" size="20px" />
         <view>{{curLikeNum}}</view>
     </view>
 </view>
-<van-popup
-    show="{{showDialog}}"
-    position="bottom"
-    custom-style="height:20%"
-    bind:close="onCloseDialog"
->
-    <textarea 
-        bind:input="onInput" 
-        name="content" 
-        class="comment-content" 
-        placeholder="写评论" 
-        value="{{content}}" 
-        fixed="{{true}}"
-        placeholder-style="font-size:30rpx;" 
-    />
+<van-popup show="{{showDialog}}" position="bottom" custom-style="height:20%" bind:close="onCloseDialog">
+    <textarea bind:input="onInput" name="content" class="comment-content" placeholder="写评论" value="{{content}}" fixed="{{true}}" placeholder-style="font-size:30rpx;" />
     <button class="send" type="primary" bind:tap="onSendComment">发送</button>
 </van-popup>

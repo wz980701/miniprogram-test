@@ -1,0 +1,17 @@
+<view class="container">
+    <view class="image-list">
+        <view class="image-wrap" wx:for="{{imgList}}" wx:key="{{index}}">
+            <image class="image" src="{{item}}" mode="aspectFill" bind:tap="onPreviewImage" data-imgsrc="{{item}}" />
+            <van-icon name="delete-o" size="38rpx" custom-class="icon-delete" bind:tap="onDelImage" data-imgsrc="{{item}}" wx:if="{{!deletePhoto}}" />
+        </view>
+        <view class="image-wrap selectphoto" bind:tap="onChooseImage">
+            <van-icon name="plus" />
+        </view>
+    </view>
+    <view class="footer">
+        <button class="delete-btn" bind:tap="delete">{{deletePhoto ? '删除' : '取消删除'}}</button>
+        <button class="send-btn" bind:tap="upload" disabled="{{isUploading}}">
+            {{isUploading ? '上传中' : '上传'}}
+        </button>
+    </view>
+</view>

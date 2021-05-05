@@ -1,6 +1,6 @@
 {
     "component": true,
     "usingComponents": {
-        "coolui-scroll": "coolui-scroller/index"
+        "user-list": "/components/userList/index"
     }
 }

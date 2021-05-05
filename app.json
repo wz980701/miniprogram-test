@@ -11,7 +11,13 @@
     "pages/contact/index",
     "pages/dynamicDetail/index",
     "pages/dynamicEdit/index",
-    "pages/communityDetail/index"
+    "pages/communityDetail/index",
+    "pages/photo/index",
+    "pages/uploadImg/index",
+    "pages/addManager/index",
+    "pages/applyList/index",
+    "pages/modifyCommunityInfo/index",
+    "pages/announceEdit/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

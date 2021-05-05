@@ -1,12 +1,6 @@
 <view class="index">
     <view class="index-swiper-box">
-        <swiper
-            class="index-swiper"
-            indicator-dots="{{true}}"
-            autoplay="{{true}}"
-            interval="3000"
-            duration="500"
-        >
+        <swiper class="index-swiper" indicator-dots="{{true}}" autoplay="{{true}}" interval="3000" duration="500">
             <block wx:for="{{swiperImgList}}">
                 <swiper-item>
                     <image src="{{item}}" class="swiper-item" mode="widthFix" />
@@ -14,4 +8,12 @@
             </block>
         </swiper>
     </view>
+    <view class="hot-tag">
+        <van-icon name="fire" color="#C70039"></van-icon>
+        Hot 5
+    </view>
+    <van-divider></van-divider>
+    <block wx:for="{{hotList}}" wx:key="{{index}}">
+        <dynamic-card item="{{item}}"></dynamic-card>
+    </block>
 </view>

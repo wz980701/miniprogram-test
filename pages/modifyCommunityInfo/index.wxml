@@ -1,0 +1,26 @@
+<view class="container">
+    <van-field label="社团名" model:value="{{communityName}}" border="{{false}}" placeholder="请输入社团名" bind:change="onCommunityNameChange" />
+    <van-field label="社团介绍" model:value="{{communityInfo}}" border="{{false}}" placeholder="请输入社团介绍" bind:change="onCommunityInfoChange" />
+    <button class="submit-btn" bind:tap="update">提交</button>
+    <van-divider></van-divider>
+    <block wx:if="{{type === 'update'}}">
+        <view class="background img-item" data-type="setBackgroundUrl" bind:tap="routeToUploadImg">
+            <view class="left-side">
+                <view class="label">背景图</view>
+                <image class="img" src="{{backgroundUrl}}" mode="scaleToFill" />
+            </view>
+            <view class="right-side">
+                <van-icon name="arrow" size="20px" />
+            </view>
+        </view>
+        <view class="avatar img-item" data-type="setAvatarUrl" bind:tap="routeToUploadImg">
+            <view class="left-side">
+                <view class="label">头像</view>
+                <image class="img" src="{{avatarUrl}}" mode="scaleToFill" />
+            </view>
+            <view class="right-side">
+                <van-icon name="arrow" size="20px" />
+            </view>
+        </view>
+    </block>
+</view>

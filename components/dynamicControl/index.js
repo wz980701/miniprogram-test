@@ -5,6 +5,7 @@ Component({
     properties: {
         itemId: Number,
         likeNum: Number,
+        browseTimes: Number,
         isLike: Boolean
     },
     data: {
@@ -19,11 +20,12 @@ Component({
         }
     },
     observers: {
-        'itemId, likeNum, isLike' (itemId, likeNum, isLike) {
+        'itemId, likeNum, isLike, browseTimes' (itemId, likeNum, isLike, browseTimes) {
             this.setData({
                 dynamicId: itemId,
                 curIsLike: isLike,
-                curLikeNum: likeNum
+                curLikeNum: likeNum,
+                curBrowseTimes: browseTimes
             });
         }
     },

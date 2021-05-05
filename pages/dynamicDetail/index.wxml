@@ -12,11 +12,8 @@
             <view class="tab-item">评论列表</view>
         </view>
     </view>
-    <dynamic-comment 
-        currentId="{{dynamic.id}}"
-        scrollViewHeight="{{scrollViewHeight}}"
-    />
+    <dynamic-comment currentId="{{dynamic.id}}" scrollViewHeight="{{scrollViewHeight}}" />
     <view class="dynamic-control">
-        <dynamic-control itemId="{{dynamic.id}}" likeNum="{{dynamic.likeNum}}" isLike="{{dynamic.isLike}}" />
+        <dynamic-control itemId="{{dynamic.id}}" likeNum="{{dynamic.likeNum}}" isLike="{{dynamic.isLike}}" browseTimes="{{dynamic.browseTimes}}" />
     </view>
 </view>

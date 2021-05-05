@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "发布公告",
+    "usingComponents": {
+        "van-field": "@vant/weapp/field/index"
+    }
+}

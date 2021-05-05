@@ -178,3 +178,12 @@ export const addManager = async () => {
         }
     })
 }
+
+export const getSearchUserList = async () => {
+    return await wxRequest('/community/getSearchUserList', {
+        data: {
+            communityId: 1,
+            text: '吴'
+        }
+    });
+}
